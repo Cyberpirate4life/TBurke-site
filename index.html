@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>T. Burke Real Estate | New Jersey Shore</title>
+
   <meta
     name="description"
     content="Modern real estate guidance for Monmouth County and the New Jersey Shore, backed by hands-on field experience and a trained eye."
@@ -49,8 +50,6 @@
       margin: auto;
     }
 
-    /* NAV */
-
     nav {
       position: absolute;
       top: 0;
@@ -86,9 +85,8 @@
       border: 1px solid rgba(255,255,255,.45);
       padding: 10px 17px;
       border-radius: 999px;
+      cursor: pointer;
     }
-
-    /* HERO */
 
     .hero {
       min-height: 94vh;
@@ -159,6 +157,8 @@
       border-radius: 999px;
       transition: .2s ease;
       font-size: .94rem;
+      border: 0;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -174,13 +174,12 @@
     .btn-secondary {
       border: 1px solid rgba(255,255,255,.35);
       color: white;
+      background: transparent;
     }
 
     .btn-secondary:hover {
       border-color: white;
     }
-
-    /* STATEMENT */
 
     .statement {
       padding: 110px 0;
@@ -222,8 +221,6 @@
       font-size: 1.06rem;
     }
 
-    /* THREE PILLARS */
-
     .pillars {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
@@ -262,8 +259,6 @@
       color: var(--muted);
       font-size: .97rem;
     }
-
-    /* MARKET */
 
     .market {
       padding: 120px 0;
@@ -309,8 +304,6 @@
       text-transform: uppercase;
     }
 
-    /* SEARCH */
-
     .search-section {
       padding: 115px 0;
       background: white;
@@ -342,8 +335,6 @@
       background: #fafafa;
       font-size: .9rem;
     }
-
-    /* CONTACT */
 
     .contact {
       padding: 120px 0;
@@ -377,8 +368,6 @@
       transform: translateY(-2px);
     }
 
-    /* FOOTER */
-
     footer {
       background: #08131f;
       color: rgba(255,255,255,.58);
@@ -399,7 +388,69 @@
       letter-spacing: .12em;
     }
 
-    /* MOBILE */
+    /* CONTACT POPUP */
+
+    .contact-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 12, 20, 0.75);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 9999;
+    }
+
+    .contact-modal.show {
+      display: flex;
+    }
+
+    .contact-box {
+      width: min(460px, 100%);
+      background: var(--cream);
+      padding: 42px;
+      position: relative;
+    }
+
+    .contact-box h3 {
+      font-family: Georgia, serif;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 12px 0 28px;
+    }
+
+    .close-contact {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      border: 0;
+      background: transparent;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--navy);
+    }
+
+    .contact-choice {
+      display: block;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      font-family: Georgia, serif;
+      font-size: 1.25rem;
+    }
+
+    .contact-choice:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-choice span {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: .78rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
 
     @media (max-width: 800px) {
       nav {
@@ -445,12 +496,12 @@
         border-bottom: 0;
       }
 
-      .pillars .container {
-        width: min(100% - 40px, 1180px);
-      }
-
       .footer-inner {
         flex-direction: column;
+      }
+
+      .contact-box {
+        padding: 36px 28px;
       }
     }
   </style>
@@ -466,7 +517,7 @@
         <a href="#approach">Approach</a>
         <a href="#market">The Shore</a>
         <a href="#search">Search</a>
-        <a href="#contact" class="nav-button">Talk to T</a>
+        <a href="#" class="nav-button" onclick="openContact(); return false;">Talk to T</a>
       </div>
     </div>
   </nav>
@@ -474,9 +525,15 @@
   <header class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="eyebrow">New Jersey Shore Real Estate</div>
 
-        <h1>A New Kind<br>of Agent.</h1>
+        <div class="eyebrow">
+          New Jersey Shore Real Estate
+        </div>
+
+        <h1>
+          A New Kind<br>
+          of Agent.
+        </h1>
 
         <p class="hero-copy">
           Modern real estate guidance grounded in hands-on field experience,
@@ -484,9 +541,15 @@
         </p>
 
         <div class="button-row">
-          <a href="#search" class="btn btn-primary">Search Homes</a>
-          <a href="#contact" class="btn btn-secondary">Talk to T</a>
+          <a href="#search" class="btn btn-primary">
+            Search Homes
+          </a>
+
+          <button class="btn btn-secondary" onclick="openContact()">
+            Talk to T
+          </button>
         </div>
+
       </div>
     </div>
   </header>
@@ -520,7 +583,9 @@
 
       <div class="pillar">
         <div class="pillar-number">01</div>
+
         <h3>A Trained Eye</h3>
+
         <p>
           Experience around construction and residential properties brings
           another layer of perspective to every showing and conversation.
@@ -529,7 +594,9 @@
 
       <div class="pillar">
         <div class="pillar-number">02</div>
+
         <h3>Local Context</h3>
+
         <p>
           Real estate along the Jersey Shore is highly local. Neighborhood,
           property type, access and even a few blocks can change the story.
@@ -538,7 +605,9 @@
 
       <div class="pillar">
         <div class="pillar-number">03</div>
+
         <h3>Modern Execution</h3>
+
         <p>
           Better tools, better presentation and better access to information
           should make the process clearer, faster and more useful for clients.
@@ -552,7 +621,9 @@
     <div class="container market-grid">
 
       <div>
-        <div class="eyebrow">Local Perspective</div>
+        <div class="eyebrow">
+          Local Perspective
+        </div>
 
         <h2>
           Monmouth County.<br>
@@ -567,6 +638,7 @@
       </div>
 
       <div class="place-list">
+
         <div class="place">
           <span>Atlantic Highlands</span>
           <span>Explore</span>
@@ -591,6 +663,7 @@
           <span>Rumson</span>
           <span>Explore</span>
         </div>
+
       </div>
 
     </div>
@@ -600,18 +673,24 @@
     <div class="container">
 
       <div class="search-shell">
-        <div class="section-label">Property Search</div>
 
-        <h2>Find your next move.</h2>
+        <div class="section-label">
+          Property Search
+        </div>
+
+        <h2>
+          Find your next move.
+        </h2>
 
         <p>
           Search homes across the Jersey Shore and Monmouth County.
-          This area is ready for the RealScout search experience.
+          Your RealScout search tool will eventually live here.
         </p>
 
         <div class="search-placeholder">
-          REALSCOUT WIDGET WILL GO HERE
+          REALSCOUT SEARCH WIDGET WILL GO HERE
         </div>
+
       </div>
 
     </div>
@@ -620,7 +699,9 @@
   <section class="contact" id="contact">
     <div class="container contact-inner">
 
-      <div class="section-label">Start a Conversation</div>
+      <div class="section-label">
+        Start a Conversation
+      </div>
 
       <h2>
         Thinking about<br>
@@ -632,9 +713,9 @@
         neighborhood is really worth? Start with a conversation.
       </p>
 
-      <a href="mailto:YOUR-EMAIL-HERE" class="btn dark-btn">
+      <button class="btn dark-btn" onclick="openContact()">
         Talk to T
-      </a>
+      </button>
 
     </div>
   </section>
@@ -656,6 +737,57 @@
 
     </div>
   </footer>
+
+  <!-- CONTACT POPUP -->
+
+  <div id="contactModal" class="contact-modal" onclick="backgroundClose(event)">
+    <div class="contact-box">
+
+      <button class="close-contact" onclick="closeContact()">
+        ×
+      </button>
+
+      <div class="section-label">
+        CONTACT T
+      </div>
+
+      <h3>
+        How would you like to connect?
+      </h3>
+
+      <a href="tel:+17325134168" class="contact-choice">
+        Call T
+        <span>732-513-4168</span>
+      </a>
+
+      <a href="sms:+17325134168" class="contact-choice">
+        Text T
+        <span>Send a message</span>
+      </a>
+
+      <a href="mailto:tburke.realestate@gmail.com" class="contact-choice">
+        Email T
+        <span>tburke.realestate@gmail.com</span>
+      </a>
+
+    </div>
+  </div>
+
+  <script>
+    function openContact() {
+      document.getElementById("contactModal").classList.add("show");
+    }
+
+    function closeContact() {
+      document.getElementById("contactModal").classList.remove("show");
+    }
+
+    function backgroundClose(event) {
+      if (event.target.id === "contactModal") {
+        closeContact();
+      }
+    }
+  </script>
 
 </body>
 </html>
