@@ -1,20 +1,661 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>T. Burke Real Estate</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>T. Burke Real Estate | New Jersey Shore</title>
+  <meta
+    name="description"
+    content="Modern real estate guidance for Monmouth County and the New Jersey Shore, backed by hands-on field experience and a trained eye."
+  />
+
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --navy-light: #17283c;
+      --cream: #f4f0e7;
+      --white: #ffffff;
+      --charcoal: #25282b;
+      --muted: #6d7378;
+      --line: rgba(13, 27, 42, 0.12);
+      --accent: #b99a68;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* NAV */
+
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+      padding: 28px 0;
+      color: white;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      font-family: Georgia, serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.16em;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 0.9rem;
+      align-items: center;
+    }
+
+    .nav-button {
+      border: 1px solid rgba(255,255,255,.45);
+      padding: 10px 17px;
+      border-radius: 999px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 94vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 30%, rgba(185,154,104,.14), transparent 35%),
+        linear-gradient(120deg, #081421 0%, #102439 55%, #152e47 100%);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 50%;
+      right: -130px;
+      bottom: -190px;
+    }
+
+    .hero-content {
+      max-width: 860px;
+      padding: 140px 0 90px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .76rem;
+      color: #d9c7aa;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.4rem, 8vw, 7.6rem);
+      line-height: .93;
+      font-weight: 400;
+      max-width: 950px;
+      margin-bottom: 30px;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      font-size: clamp(1.05rem, 2vw, 1.32rem);
+      color: rgba(255,255,255,.77);
+      margin-bottom: 38px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 999px;
+      transition: .2s ease;
+      font-size: .94rem;
+    }
+
+    .btn-primary {
+      background: var(--cream);
+      color: var(--navy);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: white;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.35);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      border-color: white;
+    }
+
+    /* STATEMENT */
+
+    .statement {
+      padding: 110px 0;
+      background: var(--cream);
+    }
+
+    .statement-grid {
+      display: grid;
+      grid-template-columns: .8fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .72rem;
+      color: var(--muted);
+    }
+
+    .statement h2,
+    .market h2,
+    .search-section h2,
+    .contact h2 {
+      font-family: Georgia, serif;
+      font-weight: 400;
+      line-height: 1.08;
+    }
+
+    .statement h2 {
+      font-size: clamp(2.1rem, 5vw, 4.1rem);
+      max-width: 800px;
+      margin-bottom: 26px;
+    }
+
+    .statement-copy {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    /* THREE PILLARS */
+
+    .pillars {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #f8f5ef;
+    }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .pillar {
+      padding: 54px 38px;
+      border-right: 1px solid var(--line);
+    }
+
+    .pillar:last-child {
+      border-right: 0;
+    }
+
+    .pillar-number {
+      font-family: Georgia, serif;
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin-bottom: 25px;
+    }
+
+    .pillar h3 {
+      font-family: Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .pillar p {
+      color: var(--muted);
+      font-size: .97rem;
+    }
+
+    /* MARKET */
+
+    .market {
+      padding: 120px 0;
+      background: var(--navy);
+      color: white;
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .market h2 {
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      margin-bottom: 28px;
+    }
+
+    .market p {
+      color: rgba(255,255,255,.68);
+      max-width: 560px;
+    }
+
+    .place-list {
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+
+    .place {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,.16);
+      font-family: Georgia, serif;
+      font-size: 1.35rem;
+    }
+
+    .place span:last-child {
+      color: rgba(255,255,255,.4);
+      font-family: Arial, sans-serif;
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* SEARCH */
+
+    .search-section {
+      padding: 115px 0;
+      background: white;
+    }
+
+    .search-shell {
+      border: 1px solid var(--line);
+      padding: clamp(32px, 6vw, 70px);
+      text-align: center;
+    }
+
+    .search-section h2 {
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      margin: 12px auto 18px;
+    }
+
+    .search-section p {
+      max-width: 620px;
+      margin: 0 auto 34px;
+      color: var(--muted);
+    }
+
+    .search-placeholder {
+      max-width: 850px;
+      margin: auto;
+      padding: 25px;
+      border: 1px dashed #b4b9bd;
+      color: #80868b;
+      background: #fafafa;
+      font-size: .9rem;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      padding: 120px 0;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .contact h2 {
+      font-size: clamp(2.6rem, 6vw, 5.5rem);
+      margin: 15px 0 25px;
+    }
+
+    .contact p {
+      max-width: 570px;
+      margin: 0 auto 35px;
+      color: var(--muted);
+    }
+
+    .dark-btn {
+      background: var(--navy);
+      color: white;
+    }
+
+    .dark-btn:hover {
+      background: var(--navy-light);
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #08131f;
+      color: rgba(255,255,255,.58);
+      padding: 35px 0;
+      font-size: .82rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      color: white;
+      font-family: Georgia, serif;
+      letter-spacing: .12em;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+      nav {
+        padding: 20px 0;
+      }
+
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+
+      .hero {
+        min-height: 88vh;
+      }
+
+      .hero-content {
+        padding-top: 120px;
+      }
+
+      .statement,
+      .market,
+      .search-section,
+      .contact {
+        padding: 80px 0;
+      }
+
+      .statement-grid,
+      .market-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .pillar-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillar {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 38px 0;
+      }
+
+      .pillar:last-child {
+        border-bottom: 0;
+      }
+
+      .pillars .container {
+        width: min(100% - 40px, 1180px);
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h1>A New Kind of Agent.</h1>
 
-  <p>
-    Modern real estate guidance backed by hands-on field experience,
-    local knowledge, and a trained eye.
-  </p>
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="brand">T. BURKE</a>
 
-  <a href="#">Search Homes</a>
-  <a href="#">Talk to T</a>
+      <div class="nav-links">
+        <a href="#approach">Approach</a>
+        <a href="#market">The Shore</a>
+        <a href="#search">Search</a>
+        <a href="#contact" class="nav-button">Talk to T</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="eyebrow">New Jersey Shore Real Estate</div>
+
+        <h1>A New Kind<br>of Agent.</h1>
+
+        <p class="hero-copy">
+          Modern real estate guidance grounded in hands-on field experience,
+          local knowledge, and a trained eye for what others overlook.
+        </p>
+
+        <div class="button-row">
+          <a href="#search" class="btn btn-primary">Search Homes</a>
+          <a href="#contact" class="btn btn-secondary">Talk to T</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="statement" id="approach">
+    <div class="container statement-grid">
+
+      <div class="section-label">
+        The Approach
+      </div>
+
+      <div>
+        <h2>
+          Field experience.<br>
+          Forward thinking.
+        </h2>
+
+        <p class="statement-copy">
+          Real estate is changing. The fundamentals still matter, but the tools,
+          information and expectations are different. My approach combines
+          practical experience around homes with a modern way of helping clients
+          understand the market, evaluate property and make confident decisions.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="pillars">
+    <div class="container pillar-grid">
+
+      <div class="pillar">
+        <div class="pillar-number">01</div>
+        <h3>A Trained Eye</h3>
+        <p>
+          Experience around construction and residential properties brings
+          another layer of perspective to every showing and conversation.
+        </p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-number">02</div>
+        <h3>Local Context</h3>
+        <p>
+          Real estate along the Jersey Shore is highly local. Neighborhood,
+          property type, access and even a few blocks can change the story.
+        </p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-number">03</div>
+        <h3>Modern Execution</h3>
+        <p>
+          Better tools, better presentation and better access to information
+          should make the process clearer, faster and more useful for clients.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="market" id="market">
+    <div class="container market-grid">
+
+      <div>
+        <div class="eyebrow">Local Perspective</div>
+
+        <h2>
+          Monmouth County.<br>
+          Shore to downtown.
+        </h2>
+
+        <p>
+          Waterfront towns, historic neighborhoods, beach communities and
+          downtown markets all behave differently. Understanding those differences
+          matters just as much as understanding the house itself.
+        </p>
+      </div>
+
+      <div class="place-list">
+        <div class="place">
+          <span>Atlantic Highlands</span>
+          <span>Explore</span>
+        </div>
+
+        <div class="place">
+          <span>Highlands</span>
+          <span>Explore</span>
+        </div>
+
+        <div class="place">
+          <span>Red Bank</span>
+          <span>Explore</span>
+        </div>
+
+        <div class="place">
+          <span>Sea Bright</span>
+          <span>Explore</span>
+        </div>
+
+        <div class="place">
+          <span>Rumson</span>
+          <span>Explore</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="search-section" id="search">
+    <div class="container">
+
+      <div class="search-shell">
+        <div class="section-label">Property Search</div>
+
+        <h2>Find your next move.</h2>
+
+        <p>
+          Search homes across the Jersey Shore and Monmouth County.
+          This area is ready for the RealScout search experience.
+        </p>
+
+        <div class="search-placeholder">
+          REALSCOUT WIDGET WILL GO HERE
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+
+      <div class="section-label">Start a Conversation</div>
+
+      <h2>
+        Thinking about<br>
+        your next move?
+      </h2>
+
+      <p>
+        Buying, selling, or just trying to understand what a property or
+        neighborhood is really worth? Start with a conversation.
+      </p>
+
+      <a href="mailto:YOUR-EMAIL-HERE" class="btn dark-btn">
+        Talk to T
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        T. BURKE REAL ESTATE
+      </div>
+
+      <div>
+        New Jersey Shore · Monmouth County
+      </div>
+
+      <div>
+        © 2026 T. Burke Real Estate
+      </div>
+
+    </div>
+  </footer>
+
 </body>
 </html>
