@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>T. Burke Real Estate | New Jersey Shore</title>
+  <title>T. Burke | New Jersey Shore Real Estate</title>
 
   <meta
     name="description"
-    content="Modern real estate guidance for Monmouth County and the New Jersey Shore, backed by hands-on field experience and a trained eye."
-  />
+    content="T. Burke Real Estate. A modern approach to buying and selling real estate across Monmouth County and the New Jersey Shore."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
     :root {
-      --navy: #0d1b2a;
-      --navy-light: #17283c;
-      --cream: #f4f0e7;
-      --white: #ffffff;
-      --charcoal: #25282b;
-      --muted: #6d7378;
-      --line: rgba(13, 27, 42, 0.12);
-      --accent: #b99a68;
+      --navy: #071a2b;
+      --deep: #04111d;
+      --cream: #f4f0e8;
+      --warm-white: #fbfaf7;
+      --ink: #111820;
+      --gray: #697079;
+      --gold: #b99b6b;
+      --line: rgba(7,26,43,.14);
     }
 
     * {
@@ -34,9 +43,9 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--cream);
-      color: var(--charcoal);
+      background: var(--warm-white);
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
       line-height: 1.6;
     }
 
@@ -45,361 +54,421 @@
       text-decoration: none;
     }
 
+    button {
+      font: inherit;
+    }
+
     .container {
-      width: min(1180px, calc(100% - 40px));
+      width: min(1200px, calc(100% - 48px));
       margin: auto;
     }
+
+
+    /* ---------------- NAV ---------------- */
 
     nav {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: 10;
-      padding: 28px 0;
+      z-index: 20;
       color: white;
+      padding: 28px 0;
     }
 
     .nav-inner {
+      width: min(1400px, calc(100% - 56px));
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wordmark {
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: .77rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .nav-contact {
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 100px;
+      padding: 10px 18px;
+    }
+
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      color: white;
+      display: grid;
+      grid-template-columns: 47% 53%;
+    }
+
+    .hero-copy {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 145px 7vw 90px;
+      position: relative;
+    }
+
+    .hero-copy-inner {
+      max-width: 630px;
+    }
+
+    .kicker {
+      color: #cfbaa0;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .69rem;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-family: "Bodoni Moda", serif;
+      font-weight: 400;
+      font-size: clamp(4rem, 7vw, 7.8rem);
+      line-height: .88;
+      letter-spacing: -.045em;
+      margin-bottom: 32px;
+    }
+
+    .hero-line {
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+      color: rgba(255,255,255,.72);
+      max-width: 500px;
+      margin-bottom: 40px;
+    }
+
+    .hero-line strong {
+      color: white;
+      font-weight: 500;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 52px;
+      padding: 0 25px;
+      border-radius: 100px;
+      border: 0;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: .71rem;
+      letter-spacing: .12em;
+      transition: .25s ease;
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--navy);
+    }
+
+    .btn-outline {
+      color: white;
+      border: 1px solid rgba(255,255,255,.35);
+      background: transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-photo {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(7,26,43,.23),
+          transparent 25%
+        );
+    }
+
+
+    /* ---------------- INTRO ---------------- */
+
+    .intro {
+      background: var(--cream);
+      padding: 130px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 100px;
+      align-items: center;
+    }
+
+    .logo-wrap {
+      text-align: center;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      max-width: 300px;
+      mix-blend-mode: multiply;
+    }
+
+    .section-tag {
+      text-transform: uppercase;
+      letter-spacing: .2em;
+      font-size: .67rem;
+      color: #77736c;
+      margin-bottom: 22px;
+    }
+
+    .intro h2,
+    .shore h2,
+    .search h2,
+    .contact h2 {
+      font-family: "Bodoni Moda", serif;
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: .98;
+    }
+
+    .intro h2 {
+      font-size: clamp(2.8rem, 5vw, 5.3rem);
+      max-width: 780px;
+      margin-bottom: 30px;
+    }
+
+    .intro p {
+      max-width: 680px;
+      color: var(--gray);
+      font-size: 1.03rem;
+    }
+
+
+    /* ---------------- DIFFERENCE ---------------- */
+
+    .difference {
+      background: var(--warm-white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .difference-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+    }
+
+    .difference-card {
+      padding: 70px 46px;
+      border-right: 1px solid var(--line);
+    }
+
+    .difference-card:last-child {
+      border-right: 0;
+    }
+
+    .number {
+      color: var(--gold);
+      font-size: .69rem;
+      letter-spacing: .15em;
+      margin-bottom: 45px;
+    }
+
+    .difference-card h3 {
+      font-family: "Bodoni Moda", serif;
+      font-weight: 400;
+      font-size: 2rem;
+      margin-bottom: 18px;
+    }
+
+    .difference-card p {
+      font-size: .9rem;
+      color: var(--gray);
+      max-width: 320px;
+    }
+
+
+    /* ---------------- SHORE ---------------- */
+
+    .shore {
+      background: var(--deep);
+      color: white;
+      padding: 130px 0;
+    }
+
+    .shore-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 110px;
+      align-items: end;
+    }
+
+    .shore h2 {
+      font-size: clamp(3rem, 6vw, 6rem);
+      margin-bottom: 26px;
+    }
+
+    .shore-copy {
+      color: rgba(255,255,255,.6);
+      max-width: 510px;
+    }
+
+    .towns {
+      border-top: 1px solid rgba(255,255,255,.18);
+    }
+
+    .town {
+      padding: 21px 0;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .town-name {
+      font-family: "Bodoni Moda", serif;
+      font-size: 1.55rem;
+    }
+
+    .town-arrow {
+      color: #c9ae86;
+    }
+
+
+    /* ---------------- SEARCH ---------------- */
+
+    .search {
+      background: white;
+      padding: 120px 0;
+    }
+
+    .search-inner {
+      text-align: center;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .search h2 {
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      margin-bottom: 18px;
+    }
+
+    .search p {
+      color: var(--gray);
+      margin: auto;
+      max-width: 600px;
+    }
+
+    .search-box {
+      margin-top: 48px;
+      border: 1px solid var(--line);
+      min-height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8b9094;
+      font-size: .72rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+
+    /* ---------------- CONTACT ---------------- */
+
+    .contact {
+      background: var(--cream);
+      padding: 140px 20px;
+      text-align: center;
+    }
+
+    .contact-inner {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .contact h2 {
+      font-size: clamp(3.4rem, 7vw, 7rem);
+      margin-bottom: 28px;
+    }
+
+    .contact p {
+      color: var(--gray);
+      max-width: 570px;
+      margin: 0 auto 38px;
+    }
+
+    .btn-dark {
+      background: var(--navy);
+      color: white;
+    }
+
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      background: var(--deep);
+      color: rgba(255,255,255,.55);
+      padding: 42px 0;
+      font-size: .72rem;
+    }
+
+    .footer-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 30px;
     }
 
-    .brand {
-      font-family: Georgia, serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.16em;
-      font-weight: bold;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      font-size: 0.9rem;
-      align-items: center;
-    }
-
-    .nav-button {
-      border: 1px solid rgba(255,255,255,.45);
-      padding: 10px 17px;
-      border-radius: 999px;
-      cursor: pointer;
-    }
-
-    .hero {
-      min-height: 94vh;
-      display: flex;
-      align-items: center;
-      background:
-        radial-gradient(circle at 80% 30%, rgba(185,154,104,.14), transparent 35%),
-        linear-gradient(120deg, #081421 0%, #102439 55%, #152e47 100%);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 520px;
-      height: 520px;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 50%;
-      right: -130px;
-      bottom: -190px;
-    }
-
-    .hero-content {
-      max-width: 860px;
-      padding: 140px 0 90px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font-size: .76rem;
-      color: #d9c7aa;
-      margin-bottom: 24px;
-    }
-
-    h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.4rem, 8vw, 7.6rem);
-      line-height: .93;
-      font-weight: 400;
-      max-width: 950px;
-      margin-bottom: 30px;
-    }
-
-    .hero-copy {
-      max-width: 650px;
-      font-size: clamp(1.05rem, 2vw, 1.32rem);
-      color: rgba(255,255,255,.77);
-      margin-bottom: 38px;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 0 24px;
-      border-radius: 999px;
-      transition: .2s ease;
-      font-size: .94rem;
-      border: 0;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--cream);
-      color: var(--navy);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      background: white;
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,.35);
-      color: white;
-      background: transparent;
-    }
-
-    .btn-secondary:hover {
-      border-color: white;
-    }
-
-    .statement {
-      padding: 110px 0;
-      background: var(--cream);
-    }
-
-    .statement-grid {
-      display: grid;
-      grid-template-columns: .8fr 2fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .section-label {
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      font-size: .72rem;
-      color: var(--muted);
-    }
-
-    .statement h2,
-    .market h2,
-    .search-section h2,
-    .contact h2 {
-      font-family: Georgia, serif;
-      font-weight: 400;
-      line-height: 1.08;
-    }
-
-    .statement h2 {
-      font-size: clamp(2.1rem, 5vw, 4.1rem);
-      max-width: 800px;
-      margin-bottom: 26px;
-    }
-
-    .statement-copy {
-      max-width: 680px;
-      color: var(--muted);
-      font-size: 1.06rem;
-    }
-
-    .pillars {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: #f8f5ef;
-    }
-
-    .pillar-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .pillar {
-      padding: 54px 38px;
-      border-right: 1px solid var(--line);
-    }
-
-    .pillar:last-child {
-      border-right: 0;
-    }
-
-    .pillar-number {
-      font-family: Georgia, serif;
-      font-size: 1.3rem;
-      color: var(--accent);
-      margin-bottom: 25px;
-    }
-
-    .pillar h3 {
-      font-family: Georgia, serif;
-      font-size: 1.7rem;
-      font-weight: 400;
-      margin-bottom: 12px;
-    }
-
-    .pillar p {
-      color: var(--muted);
-      font-size: .97rem;
-    }
-
-    .market {
-      padding: 120px 0;
-      background: var(--navy);
-      color: white;
-    }
-
-    .market-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 90px;
-      align-items: center;
-    }
-
-    .market h2 {
-      font-size: clamp(2.5rem, 5vw, 4.8rem);
-      margin-bottom: 28px;
-    }
-
-    .market p {
-      color: rgba(255,255,255,.68);
-      max-width: 560px;
-    }
-
-    .place-list {
-      border-top: 1px solid rgba(255,255,255,.16);
-    }
-
-    .place {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(255,255,255,.16);
-      font-family: Georgia, serif;
-      font-size: 1.35rem;
-    }
-
-    .place span:last-child {
-      color: rgba(255,255,255,.4);
-      font-family: Arial, sans-serif;
-      font-size: .8rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    .search-section {
-      padding: 115px 0;
-      background: white;
-    }
-
-    .search-shell {
-      border: 1px solid var(--line);
-      padding: clamp(32px, 6vw, 70px);
-      text-align: center;
-    }
-
-    .search-section h2 {
-      font-size: clamp(2.4rem, 5vw, 4.5rem);
-      margin: 12px auto 18px;
-    }
-
-    .search-section p {
-      max-width: 620px;
-      margin: 0 auto 34px;
-      color: var(--muted);
-    }
-
-    .search-placeholder {
-      max-width: 850px;
-      margin: auto;
-      padding: 25px;
-      border: 1px dashed #b4b9bd;
-      color: #80868b;
-      background: #fafafa;
-      font-size: .9rem;
-    }
-
-    .contact {
-      padding: 120px 0;
-      background: var(--cream);
-      text-align: center;
-    }
-
-    .contact-inner {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .contact h2 {
-      font-size: clamp(2.6rem, 6vw, 5.5rem);
-      margin: 15px 0 25px;
-    }
-
-    .contact p {
-      max-width: 570px;
-      margin: 0 auto 35px;
-      color: var(--muted);
-    }
-
-    .dark-btn {
-      background: var(--navy);
-      color: white;
-    }
-
-    .dark-btn:hover {
-      background: var(--navy-light);
-      transform: translateY(-2px);
-    }
-
-    footer {
-      background: #08131f;
-      color: rgba(255,255,255,.58);
-      padding: 35px 0;
-      font-size: .82rem;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
     .footer-brand {
       color: white;
-      font-family: Georgia, serif;
-      letter-spacing: .12em;
+      font-weight: 700;
+      letter-spacing: .2em;
     }
 
-    /* CONTACT POPUP */
+
+    /* ---------------- CONTACT MODAL ---------------- */
 
     .contact-modal {
       position: fixed;
       inset: 0;
-      background: rgba(5, 12, 20, 0.75);
-      backdrop-filter: blur(8px);
+      z-index: 999;
       display: none;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      z-index: 9999;
+      background: rgba(3,11,18,.82);
+      backdrop-filter: blur(9px);
     }
 
     .contact-modal.show {
@@ -407,126 +476,197 @@
     }
 
     .contact-box {
-      width: min(460px, 100%);
       background: var(--cream);
-      padding: 42px;
+      width: min(470px, 100%);
+      padding: 48px;
       position: relative;
     }
 
-    .contact-box h3 {
-      font-family: Georgia, serif;
-      font-size: 2rem;
-      font-weight: 400;
-      line-height: 1.1;
-      margin: 12px 0 28px;
-    }
-
-    .close-contact {
+    .close {
       position: absolute;
-      top: 12px;
       right: 18px;
-      border: 0;
+      top: 10px;
       background: transparent;
-      font-size: 2rem;
-      cursor: pointer;
+      border: 0;
       color: var(--navy);
+      cursor: pointer;
+      font-size: 2rem;
     }
 
-    .contact-choice {
+    .contact-box h3 {
+      font-family: "Bodoni Moda", serif;
+      font-weight: 400;
+      line-height: 1;
+      font-size: 2.5rem;
+      margin: 12px 0 30px;
+    }
+
+    .contact-option {
       display: block;
-      padding: 18px 0;
+      padding: 19px 0;
       border-top: 1px solid var(--line);
-      font-family: Georgia, serif;
-      font-size: 1.25rem;
+      font-family: "Bodoni Moda", serif;
+      font-size: 1.3rem;
     }
 
-    .contact-choice:last-child {
+    .contact-option:last-child {
       border-bottom: 1px solid var(--line);
     }
 
-    .contact-choice span {
+    .contact-option small {
       display: block;
-      font-family: Arial, sans-serif;
-      font-size: .78rem;
-      color: var(--muted);
-      margin-top: 3px;
+      color: var(--gray);
+      font-family: "Manrope", sans-serif;
+      font-size: .7rem;
+      margin-top: 4px;
     }
 
-    @media (max-width: 800px) {
-      nav {
-        padding: 20px 0;
+
+    /* ---------------- MOBILE ---------------- */
+
+    @media (max-width: 850px) {
+
+      .container {
+        width: min(100% - 36px, 1200px);
       }
 
-      .nav-links a:not(.nav-button) {
+      .nav-inner {
+        width: calc(100% - 36px);
+      }
+
+      .nav-links a:not(.nav-contact) {
         display: none;
       }
 
       .hero {
-        min-height: 88vh;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
       }
 
-      .hero-content {
-        padding-top: 120px;
+      .hero-photo {
+        order: 1;
+        min-height: 58vh;
       }
 
-      .statement,
-      .market,
-      .search-section,
-      .contact {
-        padding: 80px 0;
+      .hero-copy {
+        order: 2;
+        min-height: auto;
+        padding: 65px 26px 75px;
       }
 
-      .statement-grid,
-      .market-grid {
+      h1 {
+        font-size: clamp(3.8rem, 17vw, 6rem);
+      }
+
+      .intro {
+        padding: 85px 0;
+      }
+
+      .intro-grid {
         grid-template-columns: 1fr;
-        gap: 38px;
+        gap: 55px;
       }
 
-      .pillar-grid {
+      .logo-wrap img {
+        max-width: 230px;
+      }
+
+      .difference-grid {
         grid-template-columns: 1fr;
       }
 
-      .pillar {
+      .difference-card {
+        padding: 48px 4px;
         border-right: 0;
         border-bottom: 1px solid var(--line);
-        padding: 38px 0;
       }
 
-      .pillar:last-child {
+      .difference-card:last-child {
         border-bottom: 0;
+      }
+
+      .shore {
+        padding: 90px 0;
+      }
+
+      .shore-grid {
+        grid-template-columns: 1fr;
+        gap: 65px;
+      }
+
+      .search {
+        padding: 85px 0;
+      }
+
+      .contact {
+        padding: 95px 20px;
       }
 
       .footer-inner {
         flex-direction: column;
+        align-items: flex-start;
       }
 
       .contact-box {
-        padding: 36px 28px;
+        padding: 38px 27px;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
+
+  <!-- NAV -->
+
   <nav>
-    <div class="container nav-inner">
-      <a href="#" class="brand">T. BURKE</a>
+    <div class="nav-inner">
+
+      <a href="#" class="wordmark">
+        T. BURKE
+      </a>
 
       <div class="nav-links">
-        <a href="#approach">Approach</a>
-        <a href="#market">The Shore</a>
-        <a href="#search">Search</a>
-        <a href="#" class="nav-button" onclick="openContact(); return false;">Talk to T</a>
+
+        <a href="#approach">
+          Approach
+        </a>
+
+        <a href="#shore">
+          The Shore
+        </a>
+
+        <a href="#search">
+          Search
+        </a>
+
+        <a
+          href="#"
+          class="nav-contact"
+          onclick="openContact(); return false;"
+        >
+          Talk to T
+        </a>
+
       </div>
+
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="container">
-      <div class="hero-content">
 
-        <div class="eyebrow">
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-copy">
+
+      <div class="hero-copy-inner">
+
+        <div class="kicker">
           New Jersey Shore Real Estate
         </div>
 
@@ -535,251 +675,372 @@
           of Agent.
         </h1>
 
-        <p class="hero-copy">
-          Modern real estate guidance grounded in hands-on field experience,
-          local knowledge, and a trained eye for what others overlook.
+        <p class="hero-line">
+          <strong>Field experience. Forward thinking.</strong><br>
+          A modern approach to real estate built on practical experience,
+          local knowledge and a trained eye.
         </p>
 
-        <div class="button-row">
-          <a href="#search" class="btn btn-primary">
-            Search Homes
+        <div class="buttons">
+
+          <a
+            href="#search"
+            class="btn btn-light"
+          >
+            Explore Homes
           </a>
 
-          <button class="btn btn-secondary" onclick="openContact()">
+          <button
+            class="btn btn-outline"
+            onclick="openContact()"
+          >
             Talk to T
           </button>
+
         </div>
 
       </div>
+
     </div>
-  </header>
 
-  <section class="statement" id="approach">
-    <div class="container statement-grid">
 
-      <div class="section-label">
-        The Approach
+    <div class="hero-photo">
+
+      <img
+        src="b170a6c7-105c-494a-bfbf-32bfde0df884.jpg"
+        alt="T. Burke Real Estate"
+      >
+
+    </div>
+
+  </section>
+
+
+  <!-- POSITIONING -->
+
+  <section class="intro" id="approach">
+
+    <div class="container intro-grid">
+
+      <div class="logo-wrap">
+
+        <img
+          src="f9b77921-35bb-4ebc-ae98-cedfc164a15b.jpg"
+          alt="T. Burke logo"
+        >
+
       </div>
 
+
       <div>
+
+        <div class="section-tag">
+          The Approach
+        </div>
+
         <h2>
-          Field experience.<br>
-          Forward thinking.
+          The fundamentals matter.<br>
+          So does what comes next.
         </h2>
 
-        <p class="statement-copy">
-          Real estate is changing. The fundamentals still matter, but the tools,
-          information and expectations are different. My approach combines
-          practical experience around homes with a modern way of helping clients
-          understand the market, evaluate property and make confident decisions.
+        <p>
+          My background gives me a different perspective on real estate.
+          Years spent around construction and residential properties built
+          an understanding of how homes actually come together. Today, I pair
+          that experience with modern tools, better information and a more
+          thoughtful way of representing buyers and sellers.
         </p>
+
       </div>
 
     </div>
+
   </section>
 
-  <section class="pillars">
-    <div class="container pillar-grid">
 
-      <div class="pillar">
-        <div class="pillar-number">01</div>
+  <!-- THREE DIFFERENTIATORS -->
 
-        <h3>A Trained Eye</h3>
+  <section class="difference">
 
-        <p>
-          Experience around construction and residential properties brings
-          another layer of perspective to every showing and conversation.
-        </p>
-      </div>
+    <div class="container difference-grid">
 
-      <div class="pillar">
-        <div class="pillar-number">02</div>
+      <div class="difference-card">
 
-        <h3>Local Context</h3>
+        <div class="number">
+          01
+        </div>
+
+        <h3>
+          A Trained Eye
+        </h3>
 
         <p>
-          Real estate along the Jersey Shore is highly local. Neighborhood,
-          property type, access and even a few blocks can change the story.
+          Practical experience around homes adds another layer of perspective
+          when evaluating property, condition and opportunity.
         </p>
+
       </div>
 
-      <div class="pillar">
-        <div class="pillar-number">03</div>
 
-        <h3>Modern Execution</h3>
+      <div class="difference-card">
 
-        <p>
-          Better tools, better presentation and better access to information
-          should make the process clearer, faster and more useful for clients.
-        </p>
-      </div>
+        <div class="number">
+          02
+        </div>
 
-    </div>
-  </section>
-
-  <section class="market" id="market">
-    <div class="container market-grid">
-
-      <div>
-        <div class="eyebrow">
+        <h3>
           Local Perspective
+        </h3>
+
+        <p>
+          The Jersey Shore is not one market. Town, neighborhood, property type
+          and proximity can change the conversation quickly.
+        </p>
+
+      </div>
+
+
+      <div class="difference-card">
+
+        <div class="number">
+          03
+        </div>
+
+        <h3>
+          Modern Execution
+        </h3>
+
+        <p>
+          New technology should make real estate clearer and more useful,
+          not more complicated. I use it to improve research, presentation
+          and the client experience.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LOCAL MARKET -->
+
+  <section class="shore" id="shore">
+
+    <div class="container shore-grid">
+
+      <div>
+
+        <div class="kicker">
+          Home Ground
         </div>
 
         <h2>
-          Monmouth County.<br>
-          Shore to downtown.
+          The Jersey<br>
+          Shore.
         </h2>
 
-        <p>
-          Waterfront towns, historic neighborhoods, beach communities and
-          downtown markets all behave differently. Understanding those differences
-          matters just as much as understanding the house itself.
+        <p class="shore-copy">
+          Waterfront communities, historic neighborhoods, beach towns and
+          walkable downtowns. Monmouth County changes dramatically from one
+          place to the next, and that local context matters.
         </p>
+
       </div>
 
-      <div class="place-list">
 
-        <div class="place">
-          <span>Atlantic Highlands</span>
-          <span>Explore</span>
+      <div class="towns">
+
+        <div class="town">
+          <span class="town-name">
+            Atlantic Highlands
+          </span>
+          <span class="town-arrow">↗</span>
         </div>
 
-        <div class="place">
-          <span>Highlands</span>
-          <span>Explore</span>
+        <div class="town">
+          <span class="town-name">
+            Highlands
+          </span>
+          <span class="town-arrow">↗</span>
         </div>
 
-        <div class="place">
-          <span>Red Bank</span>
-          <span>Explore</span>
+        <div class="town">
+          <span class="town-name">
+            Red Bank
+          </span>
+          <span class="town-arrow">↗</span>
         </div>
 
-        <div class="place">
-          <span>Sea Bright</span>
-          <span>Explore</span>
+        <div class="town">
+          <span class="town-name">
+            Sea Bright
+          </span>
+          <span class="town-arrow">↗</span>
         </div>
 
-        <div class="place">
-          <span>Rumson</span>
-          <span>Explore</span>
+        <div class="town">
+          <span class="town-name">
+            Rumson
+          </span>
+          <span class="town-arrow">↗</span>
         </div>
 
       </div>
 
     </div>
+
   </section>
 
-  <section class="search-section" id="search">
-    <div class="container">
 
-      <div class="search-shell">
+  <!-- REALSCOUT -->
 
-        <div class="section-label">
-          Property Search
-        </div>
+  <section class="search" id="search">
 
-        <h2>
-          Find your next move.
-        </h2>
+    <div class="container search-inner">
 
-        <p>
-          Search homes across the Jersey Shore and Monmouth County.
-          Your RealScout search tool will eventually live here.
-        </p>
-
-        <div class="search-placeholder">
-          REALSCOUT SEARCH WIDGET WILL GO HERE
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="container contact-inner">
-
-      <div class="section-label">
-        Start a Conversation
+      <div class="section-tag">
+        Property Search
       </div>
 
       <h2>
-        Thinking about<br>
-        your next move?
+        Find your next move.
       </h2>
 
       <p>
-        Buying, selling, or just trying to understand what a property or
-        neighborhood is really worth? Start with a conversation.
+        Explore homes throughout Monmouth County and the New Jersey Shore.
       </p>
 
-      <button class="btn dark-btn" onclick="openContact()">
+      <div class="search-box">
+        RealScout Search Coming Here
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="contact">
+
+    <div class="contact-inner">
+
+      <div class="section-tag">
+        Start A Conversation
+      </div>
+
+      <h2>
+        Make your<br>
+        next move.
+      </h2>
+
+      <p>
+        Buying, selling or simply trying to understand your options?
+        Start with a conversation.
+      </p>
+
+      <button
+        class="btn btn-dark"
+        onclick="openContact()"
+      >
         Talk to T
       </button>
 
     </div>
+
   </section>
 
+
+  <!-- FOOTER -->
+
   <footer>
+
     <div class="container footer-inner">
 
       <div class="footer-brand">
-        T. BURKE REAL ESTATE
+        T. BURKE
       </div>
 
       <div>
-        New Jersey Shore · Monmouth County
+        NEW JERSEY SHORE · MONMOUTH COUNTY
       </div>
 
       <div>
-        © 2026 T. Burke Real Estate
+        © 2026 T. BURKE REAL ESTATE
       </div>
 
     </div>
+
   </footer>
+
 
   <!-- CONTACT POPUP -->
 
-  <div id="contactModal" class="contact-modal" onclick="backgroundClose(event)">
+  <div
+    id="contactModal"
+    class="contact-modal"
+    onclick="backgroundClose(event)"
+  >
+
     <div class="contact-box">
 
-      <button class="close-contact" onclick="closeContact()">
+      <button
+        class="close"
+        onclick="closeContact()"
+      >
         ×
       </button>
 
-      <div class="section-label">
-        CONTACT T
+      <div class="section-tag">
+        Contact T
       </div>
 
       <h3>
         How would you like to connect?
       </h3>
 
-      <a href="tel:+17325134168" class="contact-choice">
+      <a
+        href="tel:+17325134168"
+        class="contact-option"
+      >
         Call T
-        <span>732-513-4168</span>
+        <small>732-513-4168</small>
       </a>
 
-      <a href="sms:+17325134168" class="contact-choice">
+      <a
+        href="sms:+17325134168"
+        class="contact-option"
+      >
         Text T
-        <span>Send a message</span>
+        <small>Send a message</small>
       </a>
 
-      <a href="mailto:tburke.realestate@gmail.com" class="contact-choice">
+      <a
+        href="mailto:tburke.realestate@gmail.com"
+        class="contact-option"
+      >
         Email T
-        <span>tburke.realestate@gmail.com</span>
+        <small>tburke.realestate@gmail.com</small>
       </a>
 
     </div>
+
   </div>
 
+
   <script>
+
     function openContact() {
-      document.getElementById("contactModal").classList.add("show");
+      document
+        .getElementById("contactModal")
+        .classList.add("show");
     }
 
     function closeContact() {
-      document.getElementById("contactModal").classList.remove("show");
+      document
+        .getElementById("contactModal")
+        .classList.remove("show");
     }
 
     function backgroundClose(event) {
@@ -787,7 +1048,9 @@
         closeContact();
       }
     }
+
   </script>
+
 
 </body>
 </html>
