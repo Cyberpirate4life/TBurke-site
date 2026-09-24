@@ -8,28 +8,19 @@
 
   <meta
     name="description"
-    content="T. Burke Real Estate. A modern approach to buying and selling real estate across Monmouth County and the New Jersey Shore."
-  >
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Manrope:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
+    content="T. Burke Real Estate. Modern real estate guidance for Monmouth County and the New Jersey Shore."
   >
 
   <style>
-
     :root {
       --navy: #071a2b;
       --deep: #04111d;
-      --cream: #f4f0e8;
-      --warm-white: #fbfaf7;
-      --ink: #111820;
-      --gray: #697079;
-      --gold: #b99b6b;
-      --line: rgba(7,26,43,.14);
+      --cream: #f4efe5;
+      --white: #ffffff;
+      --ink: #101820;
+      --muted: #4f5962;
+      --gold: #b69261;
+      --line: rgba(7, 26, 43, 0.16);
     }
 
     * {
@@ -43,15 +34,15 @@
     }
 
     body {
-      background: var(--warm-white);
+      background: var(--cream);
       color: var(--ink);
-      font-family: "Manrope", sans-serif;
-      line-height: 1.6;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow-x: hidden;
     }
 
     a {
-      color: inherit;
       text-decoration: none;
+      color: inherit;
     }
 
     button {
@@ -59,12 +50,60 @@
     }
 
     .container {
-      width: min(1200px, calc(100% - 48px));
+      width: min(1180px, calc(100% - 48px));
       margin: auto;
+      position: relative;
+      z-index: 3;
     }
 
+    .display {
+      font-family: "Baskerville", "Iowan Old Style", Georgia, serif;
+      font-weight: 400;
+    }
 
-    /* ---------------- NAV ---------------- */
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .68rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    /* --------------------------------
+       GLOBAL COASTLINE
+    -------------------------------- */
+
+    .coastline-wrap {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: .34;
+    }
+
+    .coastline-svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .coastline-base {
+      fill: none;
+      stroke: rgba(255,255,255,.10);
+      stroke-width: 1;
+    }
+
+    .coastline-progress {
+      fill: none;
+      stroke: rgba(182,146,97,.75);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+    }
+
+    /* --------------------------------
+       NAV
+    -------------------------------- */
 
     nav {
       position: absolute;
@@ -84,7 +123,7 @@
       align-items: center;
     }
 
-    .wordmark {
+    .brand {
       font-size: .95rem;
       font-weight: 700;
       letter-spacing: .22em;
@@ -94,88 +133,110 @@
       display: flex;
       align-items: center;
       gap: 28px;
-      font-size: .77rem;
-      letter-spacing: .09em;
       text-transform: uppercase;
+      font-size: .72rem;
+      letter-spacing: .12em;
     }
 
     .nav-contact {
-      border: 1px solid rgba(255,255,255,.5);
-      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 999px;
       padding: 10px 18px;
     }
 
-
-    /* ---------------- HERO ---------------- */
+    /* --------------------------------
+       HERO
+    -------------------------------- */
 
     .hero {
       min-height: 100vh;
+      display: grid;
+      grid-template-columns: 46% 54%;
       background: var(--navy);
       color: white;
-      display: grid;
-      grid-template-columns: 47% 53%;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-copy {
-      min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 145px 7vw 90px;
+      padding: 140px 6vw 80px 7vw;
       position: relative;
+      z-index: 3;
     }
 
-    .hero-copy-inner {
-      max-width: 630px;
+    .hero-inner {
+      max-width: 640px;
     }
 
-    .kicker {
-      color: #cfbaa0;
-      text-transform: uppercase;
-      letter-spacing: .22em;
-      font-size: .69rem;
-      margin-bottom: 28px;
-    }
-
-    h1 {
-      font-family: "Bodoni Moda", serif;
-      font-weight: 400;
-      font-size: clamp(4rem, 7vw, 7.8rem);
-      line-height: .88;
+    .hero h1 {
+      font-size: clamp(4rem, 7vw, 7.4rem);
+      line-height: .89;
       letter-spacing: -.045em;
-      margin-bottom: 32px;
+      margin-bottom: 30px;
     }
 
-    .hero-line {
-      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-      color: rgba(255,255,255,.72);
-      max-width: 500px;
-      margin-bottom: 40px;
+    .hero-sub {
+      font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+      line-height: 1.6;
+      max-width: 520px;
+      color: rgba(255,255,255,.76);
+      margin-bottom: 38px;
     }
 
-    .hero-line strong {
+    .hero-sub strong {
       color: white;
       font-weight: 500;
     }
 
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(7,26,43,.34), transparent 28%),
+        linear-gradient(0deg, rgba(7,26,43,.20), transparent 35%);
+    }
+
     .buttons {
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .btn {
       display: inline-flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       min-height: 52px;
-      padding: 0 25px;
-      border-radius: 100px;
+      padding: 0 24px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .70rem;
       border: 0;
       cursor: pointer;
-      text-transform: uppercase;
-      font-size: .71rem;
-      letter-spacing: .12em;
       transition: .25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
     .btn-light {
@@ -184,232 +245,248 @@
     }
 
     .btn-outline {
-      color: white;
-      border: 1px solid rgba(255,255,255,.35);
       background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,.4);
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .hero-photo {
-      min-height: 100vh;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-photo img {
+    .scroll-cue {
       position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 35%;
+      left: 7vw;
+      bottom: 28px;
+      z-index: 4;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: .61rem;
+      color: rgba(255,255,255,.45);
     }
 
-    .hero-photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(7,26,43,.23),
-          transparent 25%
-        );
-    }
+    /* --------------------------------
+       APPROACH
+    -------------------------------- */
 
-
-    /* ---------------- INTRO ---------------- */
-
-    .intro {
+    .approach {
+      padding: 125px 0;
       background: var(--cream);
-      padding: 130px 0;
+      position: relative;
+      z-index: 2;
     }
 
-    .intro-grid {
+    .approach-grid {
       display: grid;
-      grid-template-columns: 310px 1fr;
-      gap: 100px;
+      grid-template-columns: 290px 1fr;
+      gap: 105px;
       align-items: center;
     }
 
-    .logo-wrap {
+    .logo-panel {
       text-align: center;
     }
 
-    .logo-wrap img {
+    .logo-panel img {
       width: 100%;
-      max-width: 300px;
+      max-width: 270px;
       mix-blend-mode: multiply;
     }
 
-    .section-tag {
-      text-transform: uppercase;
-      letter-spacing: .2em;
-      font-size: .67rem;
-      color: #77736c;
-      margin-bottom: 22px;
-    }
-
-    .intro h2,
-    .shore h2,
-    .search h2,
-    .contact h2 {
-      font-family: "Bodoni Moda", serif;
-      font-weight: 400;
-      letter-spacing: -.035em;
-      line-height: .98;
-    }
-
-    .intro h2 {
+    .approach h2 {
       font-size: clamp(2.8rem, 5vw, 5.3rem);
-      max-width: 780px;
+      line-height: .98;
+      letter-spacing: -.035em;
       margin-bottom: 30px;
+      max-width: 850px;
     }
 
-    .intro p {
-      max-width: 680px;
-      color: var(--gray);
-      font-size: 1.03rem;
+    .approach p {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.72;
+      font-weight: 500;
     }
 
-
-    /* ---------------- DIFFERENCE ---------------- */
+    /* --------------------------------
+       DIFFERENCE
+    -------------------------------- */
 
     .difference {
-      background: var(--warm-white);
+      background: #faf8f3;
+      position: relative;
+      z-index: 2;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
     .difference-grid {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    .difference-card {
-      padding: 70px 46px;
+    .card {
+      min-height: 330px;
+      padding: 62px 44px;
       border-right: 1px solid var(--line);
+      position: relative;
+      transition: .3s ease;
     }
 
-    .difference-card:last-child {
+    .card:last-child {
       border-right: 0;
     }
 
-    .number {
+    .card:hover {
+      background: #f1ebe0;
+      transform: translateY(-4px);
+    }
+
+    .card-number {
       color: var(--gold);
-      font-size: .69rem;
+      font-size: .67rem;
       letter-spacing: .15em;
-      margin-bottom: 45px;
+      margin-bottom: 46px;
     }
 
-    .difference-card h3 {
-      font-family: "Bodoni Moda", serif;
-      font-weight: 400;
+    .card h3 {
       font-size: 2rem;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
-    .difference-card p {
-      font-size: .9rem;
-      color: var(--gray);
-      max-width: 320px;
+    .card p {
+      color: var(--muted);
+      font-size: .93rem;
+      line-height: 1.7;
+      font-weight: 500;
     }
 
-
-    /* ---------------- SHORE ---------------- */
+    /* --------------------------------
+       SHORE
+    -------------------------------- */
 
     .shore {
-      background: var(--deep);
+      background:
+        radial-gradient(circle at 15% 30%, rgba(182,146,97,.08), transparent 26%),
+        var(--deep);
       color: white;
-      padding: 130px 0;
+      padding: 140px 0;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .shore::before {
+      content: "THE SHORE";
+      position: absolute;
+      right: -30px;
+      top: 20px;
+      font-size: clamp(6rem, 16vw, 14rem);
+      font-weight: 700;
+      letter-spacing: -.05em;
+      color: rgba(255,255,255,.025);
+      white-space: nowrap;
     }
 
     .shore-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 110px;
-      align-items: end;
+      gap: 100px;
+      align-items: center;
     }
 
     .shore h2 {
-      font-size: clamp(3rem, 6vw, 6rem);
-      margin-bottom: 26px;
+      font-size: clamp(3.2rem, 6vw, 6.2rem);
+      line-height: .94;
+      letter-spacing: -.04em;
+      margin-bottom: 28px;
     }
 
     .shore-copy {
-      color: rgba(255,255,255,.6);
-      max-width: 510px;
+      color: rgba(255,255,255,.68);
+      max-width: 520px;
+      line-height: 1.75;
+      font-size: 1rem;
     }
 
-    .towns {
+    .town-list {
       border-top: 1px solid rgba(255,255,255,.18);
     }
 
     .town {
-      padding: 21px 0;
-      border-bottom: 1px solid rgba(255,255,255,.18);
+      padding: 22px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+      transition: .25s ease;
+    }
+
+    .town:hover {
+      padding-left: 10px;
     }
 
     .town-name {
-      font-family: "Bodoni Moda", serif;
-      font-size: 1.55rem;
+      font-size: 1.45rem;
     }
 
-    .town-arrow {
-      color: #c9ae86;
+    .town-meta {
+      font-size: .66rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.42);
     }
 
-
-    /* ---------------- SEARCH ---------------- */
+    /* --------------------------------
+       SEARCH
+    -------------------------------- */
 
     .search {
       background: white;
-      padding: 120px 0;
+      padding: 125px 0;
+      position: relative;
+      z-index: 2;
     }
 
     .search-inner {
-      text-align: center;
       max-width: 1000px;
-      margin: auto;
+      text-align: center;
     }
 
     .search h2 {
-      font-size: clamp(3rem, 5vw, 5.5rem);
-      margin-bottom: 18px;
+      font-size: clamp(3rem, 5vw, 5.7rem);
+      line-height: .95;
+      margin-bottom: 20px;
     }
 
     .search p {
-      color: var(--gray);
-      margin: auto;
+      color: var(--muted);
       max-width: 600px;
+      margin: auto;
+      font-size: 1rem;
+      font-weight: 500;
     }
 
     .search-box {
       margin-top: 48px;
+      min-height: 150px;
       border: 1px solid var(--line);
-      min-height: 145px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #8b9094;
-      font-size: .72rem;
-      letter-spacing: .13em;
       text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .67rem;
+      color: #777f86;
     }
 
-
-    /* ---------------- CONTACT ---------------- */
+    /* --------------------------------
+       CONTACT
+    -------------------------------- */
 
     .contact {
       background: var(--cream);
-      padding: 140px 20px;
+      padding: 145px 20px;
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
 
     .contact-inner {
@@ -418,14 +495,17 @@
     }
 
     .contact h2 {
-      font-size: clamp(3.4rem, 7vw, 7rem);
+      font-size: clamp(3.6rem, 7vw, 7rem);
+      line-height: .93;
+      letter-spacing: -.04em;
       margin-bottom: 28px;
     }
 
     .contact p {
-      color: var(--gray);
-      max-width: 570px;
+      color: var(--muted);
+      max-width: 580px;
       margin: 0 auto 38px;
+      font-weight: 500;
     }
 
     .btn-dark {
@@ -433,21 +513,24 @@
       color: white;
     }
 
-
-    /* ---------------- FOOTER ---------------- */
+    /* --------------------------------
+       FOOTER
+    -------------------------------- */
 
     footer {
       background: var(--deep);
       color: rgba(255,255,255,.55);
-      padding: 42px 0;
-      font-size: .72rem;
+      padding: 40px 0;
+      position: relative;
+      z-index: 2;
+      font-size: .7rem;
     }
 
     .footer-inner {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 30px;
+      gap: 24px;
+      flex-wrap: wrap;
     }
 
     .footer-brand {
@@ -456,19 +539,20 @@
       letter-spacing: .2em;
     }
 
-
-    /* ---------------- CONTACT MODAL ---------------- */
+    /* --------------------------------
+       CONTACT MODAL
+    -------------------------------- */
 
     .contact-modal {
       position: fixed;
       inset: 0;
-      z-index: 999;
+      z-index: 9999;
       display: none;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background: rgba(3,11,18,.82);
-      backdrop-filter: blur(9px);
+      background: rgba(2,10,17,.82);
+      backdrop-filter: blur(10px);
     }
 
     .contact-modal.show {
@@ -476,37 +560,33 @@
     }
 
     .contact-box {
-      background: var(--cream);
       width: min(470px, 100%);
+      background: var(--cream);
       padding: 48px;
       position: relative;
     }
 
     .close {
       position: absolute;
+      top: 12px;
       right: 18px;
-      top: 10px;
-      background: transparent;
+      font-size: 2rem;
+      background: none;
       border: 0;
       color: var(--navy);
       cursor: pointer;
-      font-size: 2rem;
     }
 
     .contact-box h3 {
-      font-family: "Bodoni Moda", serif;
-      font-weight: 400;
-      line-height: 1;
-      font-size: 2.5rem;
-      margin: 12px 0 30px;
+      font-size: 2.3rem;
+      margin: 10px 0 28px;
     }
 
     .contact-option {
       display: block;
-      padding: 19px 0;
       border-top: 1px solid var(--line);
-      font-family: "Bodoni Moda", serif;
-      font-size: 1.3rem;
+      padding: 18px 0;
+      font-size: 1.25rem;
     }
 
     .contact-option:last-child {
@@ -515,33 +595,25 @@
 
     .contact-option small {
       display: block;
-      color: var(--gray);
-      font-family: "Manrope", sans-serif;
       font-size: .7rem;
+      color: var(--muted);
       margin-top: 4px;
     }
 
-
-    /* ---------------- MOBILE ---------------- */
+    /* --------------------------------
+       MOBILE
+    -------------------------------- */
 
     @media (max-width: 850px) {
-
-      .container {
-        width: min(100% - 36px, 1200px);
-      }
-
-      .nav-inner {
-        width: calc(100% - 36px);
-      }
 
       .nav-links a:not(.nav-contact) {
         display: none;
       }
 
       .hero {
-        min-height: auto;
         display: flex;
         flex-direction: column;
+        min-height: auto;
       }
 
       .hero-photo {
@@ -551,39 +623,39 @@
 
       .hero-copy {
         order: 2;
-        min-height: auto;
-        padding: 65px 26px 75px;
+        padding: 64px 24px 78px;
       }
 
-      h1 {
-        font-size: clamp(3.8rem, 17vw, 6rem);
+      .hero h1 {
+        font-size: clamp(3.8rem, 17vw, 5.8rem);
       }
 
-      .intro {
+      .scroll-cue {
+        display: none;
+      }
+
+      .approach {
         padding: 85px 0;
       }
 
-      .intro-grid {
+      .approach-grid {
         grid-template-columns: 1fr;
-        gap: 55px;
+        gap: 50px;
       }
 
-      .logo-wrap img {
-        max-width: 230px;
+      .logo-panel img {
+        max-width: 220px;
       }
 
       .difference-grid {
         grid-template-columns: 1fr;
       }
 
-      .difference-card {
-        padding: 48px 4px;
+      .card {
+        min-height: auto;
         border-right: 0;
         border-bottom: 1px solid var(--line);
-      }
-
-      .difference-card:last-child {
-        border-bottom: 0;
+        padding: 48px 4px;
       }
 
       .shore {
@@ -592,41 +664,84 @@
 
       .shore-grid {
         grid-template-columns: 1fr;
-        gap: 65px;
+        gap: 60px;
       }
 
       .search {
-        padding: 85px 0;
+        padding: 90px 0;
       }
 
       .contact {
-        padding: 95px 20px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 100px 20px;
       }
 
       .contact-box {
         padding: 38px 27px;
       }
 
+      .coastline-wrap {
+        opacity: .20;
+      }
     }
 
   </style>
 </head>
 
-
 <body>
 
+  <!-- Animated Shoreline -->
 
-  <!-- NAV -->
+  <div class="coastline-wrap">
+    <svg
+      class="coastline-svg"
+      viewBox="0 0 1000 1800"
+      preserveAspectRatio="none"
+    >
+
+      <path
+        class="coastline-base"
+        pathLength="1"
+        d="
+          M 850 -50
+          C 780 80, 910 170, 815 260
+          C 730 335, 820 430, 735 525
+          C 675 595, 710 675, 645 755
+          C 590 825, 640 920, 565 1000
+          C 510 1060, 545 1145, 465 1230
+          C 405 1295, 455 1370, 375 1450
+          C 305 1515, 345 1620, 260 1710
+          C 215 1760, 175 1810, 130 1870
+        "
+      />
+
+      <path
+        id="coastlineProgress"
+        class="coastline-progress"
+        pathLength="1"
+        d="
+          M 850 -50
+          C 780 80, 910 170, 815 260
+          C 730 335, 820 430, 735 525
+          C 675 595, 710 675, 645 755
+          C 590 825, 640 920, 565 1000
+          C 510 1060, 545 1145, 465 1230
+          C 405 1295, 455 1370, 375 1450
+          C 305 1515, 345 1620, 260 1710
+          C 215 1760, 175 1810, 130 1870
+        "
+      />
+
+    </svg>
+  </div>
+
+
+  <!-- Navigation -->
 
   <nav>
+
     <div class="nav-inner">
 
-      <a href="#" class="wordmark">
+      <a href="#" class="brand">
         T. BURKE
       </a>
 
@@ -655,29 +770,30 @@
       </div>
 
     </div>
+
   </nav>
 
 
-  <!-- HERO -->
+  <!-- Hero -->
 
   <section class="hero">
 
     <div class="hero-copy">
 
-      <div class="hero-copy-inner">
+      <div class="hero-inner">
 
-        <div class="kicker">
+        <div class="eyebrow">
           New Jersey Shore Real Estate
         </div>
 
-        <h1>
+        <h1 class="display">
           A New Kind<br>
           of Agent.
         </h1>
 
-        <p class="hero-line">
+        <p class="hero-sub">
           <strong>Field experience. Forward thinking.</strong><br>
-          A modern approach to real estate built on practical experience,
+          Modern real estate guidance built on practical experience,
           local knowledge and a trained eye.
         </p>
 
@@ -703,26 +819,29 @@
 
     </div>
 
-
     <div class="hero-photo">
 
       <img
         src="b170a6c7-105c-494a-bfbf-32bfde0df884.jpg"
-        alt="T. Burke Real Estate"
+        alt="T. Burke"
       >
 
+    </div>
+
+    <div class="scroll-cue">
+      Scroll to explore
     </div>
 
   </section>
 
 
-  <!-- POSITIONING -->
+  <!-- Approach -->
 
-  <section class="intro" id="approach">
+  <section class="approach" id="approach">
 
-    <div class="container intro-grid">
+    <div class="container approach-grid">
 
-      <div class="logo-wrap">
+      <div class="logo-panel">
 
         <img
           src="f9b77921-35bb-4ebc-ae98-cedfc164a15b.jpg"
@@ -731,24 +850,22 @@
 
       </div>
 
-
       <div>
 
-        <div class="section-tag">
+        <div class="eyebrow">
           The Approach
         </div>
 
-        <h2>
+        <h2 class="display">
           The fundamentals matter.<br>
           So does what comes next.
         </h2>
 
         <p>
-          My background gives me a different perspective on real estate.
-          Years spent around construction and residential properties built
-          an understanding of how homes actually come together. Today, I pair
-          that experience with modern tools, better information and a more
-          thoughtful way of representing buyers and sellers.
+          Years spent around construction and residential properties shaped
+          the way I look at homes. Today, I pair that field experience with
+          modern research, presentation and technology to help clients make
+          clearer decisions.
         </p>
 
       </div>
@@ -758,19 +875,19 @@
   </section>
 
 
-  <!-- THREE DIFFERENTIATORS -->
+  <!-- Differentiators -->
 
   <section class="difference">
 
     <div class="container difference-grid">
 
-      <div class="difference-card">
+      <div class="card">
 
-        <div class="number">
+        <div class="card-number">
           01
         </div>
 
-        <h3>
+        <h3 class="display">
           A Trained Eye
         </h3>
 
@@ -782,38 +899,37 @@
       </div>
 
 
-      <div class="difference-card">
+      <div class="card">
 
-        <div class="number">
+        <div class="card-number">
           02
         </div>
 
-        <h3>
+        <h3 class="display">
           Local Perspective
         </h3>
 
         <p>
-          The Jersey Shore is not one market. Town, neighborhood, property type
-          and proximity can change the conversation quickly.
+          The Shore is not one market. Town, neighborhood, property type and
+          proximity can change the conversation quickly.
         </p>
 
       </div>
 
 
-      <div class="difference-card">
+      <div class="card">
 
-        <div class="number">
+        <div class="card-number">
           03
         </div>
 
-        <h3>
+        <h3 class="display">
           Modern Execution
         </h3>
 
         <p>
-          New technology should make real estate clearer and more useful,
-          not more complicated. I use it to improve research, presentation
-          and the client experience.
+          Technology should make real estate clearer, faster and more useful,
+          not more complicated.
         </p>
 
       </div>
@@ -823,7 +939,7 @@
   </section>
 
 
-  <!-- LOCAL MARKET -->
+  <!-- Shore -->
 
   <section class="shore" id="shore">
 
@@ -831,59 +947,69 @@
 
       <div>
 
-        <div class="kicker">
+        <div class="eyebrow">
           Home Ground
         </div>
 
-        <h2>
+        <h2 class="display">
           The Jersey<br>
           Shore.
         </h2>
 
         <p class="shore-copy">
           Waterfront communities, historic neighborhoods, beach towns and
-          walkable downtowns. Monmouth County changes dramatically from one
-          place to the next, and that local context matters.
+          walkable downtowns. Monmouth County changes quickly from one place
+          to the next, and understanding those differences matters.
         </p>
 
       </div>
 
 
-      <div class="towns">
+      <div class="town-list">
 
         <div class="town">
-          <span class="town-name">
+          <span class="town-name display">
             Atlantic Highlands
           </span>
-          <span class="town-arrow">↗</span>
+          <span class="town-meta">
+            Explore
+          </span>
         </div>
 
         <div class="town">
-          <span class="town-name">
+          <span class="town-name display">
             Highlands
           </span>
-          <span class="town-arrow">↗</span>
+          <span class="town-meta">
+            Explore
+          </span>
         </div>
 
         <div class="town">
-          <span class="town-name">
+          <span class="town-name display">
             Red Bank
           </span>
-          <span class="town-arrow">↗</span>
+          <span class="town-meta">
+            Explore
+          </span>
         </div>
 
         <div class="town">
-          <span class="town-name">
+          <span class="town-name display">
             Sea Bright
           </span>
-          <span class="town-arrow">↗</span>
+          <span class="town-meta">
+            Explore
+          </span>
         </div>
 
         <div class="town">
-          <span class="town-name">
+          <span class="town-name display">
             Rumson
           </span>
-          <span class="town-arrow">↗</span>
+          <span class="town-meta">
+            Explore
+          </span>
         </div>
 
       </div>
@@ -893,18 +1019,18 @@
   </section>
 
 
-  <!-- REALSCOUT -->
+  <!-- Search -->
 
   <section class="search" id="search">
 
     <div class="container search-inner">
 
-      <div class="section-tag">
+      <div class="eyebrow">
         Property Search
       </div>
 
-      <h2>
-        Find your next move.
+      <h2 class="display">
+        Find your place.
       </h2>
 
       <p>
@@ -912,7 +1038,7 @@
       </p>
 
       <div class="search-box">
-        RealScout Search Coming Here
+        RealScout Search Will Live Here
       </div>
 
     </div>
@@ -920,17 +1046,17 @@
   </section>
 
 
-  <!-- CONTACT -->
+  <!-- Contact -->
 
   <section class="contact">
 
     <div class="contact-inner">
 
-      <div class="section-tag">
+      <div class="eyebrow">
         Start A Conversation
       </div>
 
-      <h2>
+      <h2 class="display">
         Make your<br>
         next move.
       </h2>
@@ -952,7 +1078,7 @@
   </section>
 
 
-  <!-- FOOTER -->
+  <!-- Footer -->
 
   <footer>
 
@@ -975,7 +1101,7 @@
   </footer>
 
 
-  <!-- CONTACT POPUP -->
+  <!-- Contact Popup -->
 
   <div
     id="contactModal"
@@ -992,11 +1118,11 @@
         ×
       </button>
 
-      <div class="section-tag">
+      <div class="eyebrow">
         Contact T
       </div>
 
-      <h3>
+      <h3 class="display">
         How would you like to connect?
       </h3>
 
@@ -1049,8 +1175,33 @@
       }
     }
 
-  </script>
+    const shoreline = document.getElementById("coastlineProgress");
 
+    function animateShoreline() {
+
+      const pageHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+      const progress =
+        pageHeight > 0
+          ? window.scrollY / pageHeight
+          : 0;
+
+      shoreline.style.strokeDashoffset =
+        1 - progress;
+
+    }
+
+    window.addEventListener(
+      "scroll",
+      animateShoreline,
+      { passive: true }
+    );
+
+    animateShoreline();
+
+  </script>
 
 </body>
 </html>
