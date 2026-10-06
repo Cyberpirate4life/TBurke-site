@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="T. Burke Real Estate. Modern real estate guidance for Monmouth County and the New Jersey Shore."
+    content="T. Burke Real Estate. Straightforward guidance for buying and selling homes in Monmouth County and the New Jersey Shore, informed by years around construction and residential properties."
   >
 
   <style>
@@ -171,8 +171,8 @@
     }
 
     .hero h1 {
-      font-size: clamp(4rem, 7vw, 7.4rem);
-      line-height: .89;
+      font-size: clamp(3.3rem, 5.8vw, 6.1rem);
+      line-height: .98;
       letter-spacing: -.045em;
       margin-bottom: 30px;
     }
@@ -346,7 +346,7 @@
       margin-bottom: 46px;
     }
 
-    .card h3 {
+    .card h2 {
       font-size: 2rem;
       margin-bottom: 16px;
     }
@@ -540,75 +540,14 @@
     }
 
     /* --------------------------------
-       CONTACT MODAL
-    -------------------------------- */
-
-    .contact-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background: rgba(2,10,17,.82);
-      backdrop-filter: blur(10px);
-    }
-
-    .contact-modal.show {
-      display: flex;
-    }
-
-    .contact-box {
-      width: min(470px, 100%);
-      background: var(--cream);
-      padding: 48px;
-      position: relative;
-    }
-
-    .close {
-      position: absolute;
-      top: 12px;
-      right: 18px;
-      font-size: 2rem;
-      background: none;
-      border: 0;
-      color: var(--navy);
-      cursor: pointer;
-    }
-
-    .contact-box h3 {
-      font-size: 2.3rem;
-      margin: 10px 0 28px;
-    }
-
-    .contact-option {
-      display: block;
-      border-top: 1px solid var(--line);
-      padding: 18px 0;
-      font-size: 1.25rem;
-    }
-
-    .contact-option:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-
-    .contact-option small {
-      display: block;
-      font-size: .7rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    /* --------------------------------
        MOBILE
     -------------------------------- */
 
     @media (max-width: 850px) {
 
-      .nav-links a:not(.nav-contact) {
-        display: none;
-      }
+      .nav-inner { flex-wrap: wrap; gap: 20px; }
+      .nav-links { width: 100%; gap: 18px; justify-content: space-between; font-size: .65rem; }
+      nav { padding: 22px 0; background: linear-gradient(var(--navy), transparent); }
 
       .hero {
         display: flex;
@@ -617,17 +556,18 @@
       }
 
       .hero-photo {
-        order: 1;
-        min-height: 58vh;
+        order: 2;
+        min-height: 45svh;
       }
 
       .hero-copy {
-        order: 2;
-        padding: 64px 24px 78px;
+        order: 1;
+        padding: 155px 24px 64px;
       }
 
       .hero h1 {
-        font-size: clamp(3.8rem, 17vw, 5.8rem);
+        font-size: clamp(2.9rem, 12vw, 5.4rem);
+        line-height: 1;
       }
 
       .scroll-cue {
@@ -675,23 +615,69 @@
         padding: 100px 20px;
       }
 
-      .contact-box {
-        padding: 38px 27px;
-      }
 
       .coastline-wrap {
         opacity: .20;
       }
     }
 
+
+    /* Practical navigation and native interactions */
+    section, main, details { scroll-margin-top: 24px; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
+    .skip-link { position: fixed; top: 12px; left: 12px; padding: 14px 20px; background: var(--cream); color: var(--navy); z-index: 100; transform: translateY(-160%); }
+    .skip-link:focus { transform: translateY(0); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .nav-links a { display: inline-flex; align-items: center; min-height: 44px; }
+    .path-link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 20px; color: var(--navy); border-bottom: 1px solid var(--gold); font-size: .9rem; }
+    .card { display: flex; flex-direction: column; align-items: flex-start; }
+    .card .path-link { margin-top: auto; padding-top: 24px; }
+    .card p { margin-bottom: 16px; }
+    .town { cursor: pointer; gap: 16px; list-style: none; }
+    .town::-webkit-details-marker { display: none; }
+    .town-meta { color: rgba(255,255,255,.72); white-space: nowrap; }
+    .town-toggle { display: inline-block; font-size: 1.1rem; margin-left: 8px; }
+    details[open] .town-toggle { transform: rotate(45deg); }
+    .town-body { padding: 4px 0 26px; color: rgba(255,255,255,.8); line-height: 1.7; font-size: .95rem; }
+    .town-body h3 { color: var(--cream); font-size: 1rem; font-weight: 500; margin-bottom: 12px; }
+    .town-body p + p { margin-top: 12px; }
+    .town-resource { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; text-decoration: underline; text-underline-offset: 5px; color: var(--cream); }
+    .search-box { flex-direction: column; gap: 24px; padding: 36px 24px; text-transform: none; letter-spacing: normal; font-size: 1rem; }
+    .search p { line-height: 1.7; }
+    .search .search-help { margin-top: 24px; font-size: .9rem; }
+    .search-help a, .contact-details a { text-decoration: underline; text-underline-offset: 4px; }
+    .contact p { line-height: 1.7; }
+    .contact-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .btn-cream { border: 1px solid var(--navy); color: var(--navy); }
+    .contact .contact-details { margin-top: 24px; margin-bottom: 0; font-size: .9rem; overflow-wrap: anywhere; }
+    .mobile-contact { display: none; }
+    .eyebrow { color: #84633b; }
+    .hero .eyebrow, .shore .eyebrow { color: #c7a778; }
+    @media (max-width: 850px) {
+      body { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
+      .mobile-contact { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; background: var(--navy); color: var(--cream); border-top: 1px solid rgba(255,255,255,.2); padding-bottom: env(safe-area-inset-bottom); }
+      .mobile-contact a { flex: 1; min-height: 60px; display: flex; align-items: center; justify-content: center; font-size: .9rem; }
+      .mobile-contact a + a { border-left: 1px solid rgba(255,255,255,.2); }
+      .town-name { font-size: 1.25rem; }
+      .town-meta { font-size: .58rem; letter-spacing: .06em; }
+      .card-number { margin-bottom: 24px; }
+      .logo-panel img { max-width: 180px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+      .btn:hover, .card:hover { transform: none; }
+    }
+
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Animated Shoreline -->
 
-  <div class="coastline-wrap">
+  <div class="coastline-wrap" aria-hidden="true">
     <svg
       class="coastline-svg"
       viewBox="0 0 1000 1800"
@@ -737,35 +723,29 @@
 
   <!-- Navigation -->
 
-  <nav>
+  <nav aria-label="Main navigation">
 
     <div class="nav-inner">
 
-      <a href="#" class="brand">
+      <a href="#main" class="brand">
         T. BURKE
       </a>
 
       <div class="nav-links">
 
         <a href="#approach">
-          Approach
+          About T
         </a>
 
         <a href="#shore">
-          The Shore
+          Towns
         </a>
 
         <a href="#search">
           Search
         </a>
 
-        <a
-          href="#"
-          class="nav-contact"
-          onclick="openContact(); return false;"
-        >
-          Talk to T
-        </a>
+        <a href="#contact" class="nav-contact">Talk to T</a>
 
       </div>
 
@@ -776,25 +756,24 @@
 
   <!-- Hero -->
 
-  <section class="hero">
+  <main id="main">
+  <section class="hero" aria-labelledby="hero-title">
 
     <div class="hero-copy">
 
       <div class="hero-inner">
 
         <div class="eyebrow">
-          New Jersey Shore Real Estate
+          T. Burke · Monmouth County Real Estate
         </div>
 
-        <h1 class="display">
-          A New Kind<br>
-          of Agent.
-        </h1>
+        <h1 class="display" id="hero-title">Buying or selling at the Jersey Shore?</h1>
 
         <p class="hero-sub">
-          <strong>Field experience. Forward thinking.</strong><br>
-          Modern real estate guidance built on practical experience,
-          local knowledge and a trained eye.
+          I’m T. Burke. Years working around construction and residential
+          properties shape the questions I ask and the guidance I give.
+          I help buyers and sellers across Monmouth County understand their
+          options and make informed decisions.
         </p>
 
         <div class="buttons">
@@ -803,15 +782,10 @@
             href="#search"
             class="btn btn-light"
           >
-            Explore Homes
+            Search Homes
           </a>
 
-          <button
-            class="btn btn-outline"
-            onclick="openContact()"
-          >
-            Talk to T
-          </button>
+          <a href="#contact" class="btn btn-outline">Talk to T</a>
 
         </div>
 
@@ -835,6 +809,30 @@
   </section>
 
 
+  <!-- Visitor paths -->
+  <section class="difference" aria-label="How can I help?">
+    <div class="container difference-grid">
+      <article class="card">
+        <div class="card-number" aria-hidden="true">01</div>
+        <h2 class="display">Buying at the Shore</h2>
+        <p>Find a home that fits your daily life. I’ll help you compare properties, understand the tradeoffs and work through an offer.</p>
+        <a class="path-link" href="#search">Search homes <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="card">
+        <div class="card-number" aria-hidden="true">02</div>
+        <h2 class="display">Selling at the Shore</h2>
+        <p>Start with a clear view of your home’s market position, what to prepare and how to present it to buyers.</p>
+        <a class="path-link" href="mailto:tburke.realestate@gmail.com?subject=Selling%20my%20home">Discuss your home <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="card">
+        <div class="card-number" aria-hidden="true">03</div>
+        <h2 class="display">Explore the Towns</h2>
+        <p>Compare Atlantic Highlands, Highlands, Red Bank, Sea Bright and Rumson through the details that matter when choosing where to live.</p>
+        <a class="path-link" href="#shore">Explore the towns <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </section>
+
   <!-- Approach -->
 
   <section class="approach" id="approach">
@@ -853,83 +851,21 @@
       <div>
 
         <div class="eyebrow">
-          The Approach
+          About T
         </div>
 
         <h2 class="display">
-          The fundamentals matter.<br>
-          So does what comes next.
+          A practical perspective on your next home.
         </h2>
 
         <p>
-          Years spent around construction and residential properties shaped
-          the way I look at homes. Today, I pair that field experience with
-          modern research, presentation and technology to help clients make
-          clearer decisions.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- Differentiators -->
-
-  <section class="difference">
-
-    <div class="container difference-grid">
-
-      <div class="card">
-
-        <div class="card-number">
-          01
-        </div>
-
-        <h3 class="display">
-          A Trained Eye
-        </h3>
-
-        <p>
-          Practical experience around homes adds another layer of perspective
-          when evaluating property, condition and opportunity.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-number">
-          02
-        </div>
-
-        <h3 class="display">
-          Local Perspective
-        </h3>
-
-        <p>
-          The Shore is not one market. Town, neighborhood, property type and
-          proximity can change the conversation quickly.
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <div class="card-number">
-          03
-        </div>
-
-        <h3 class="display">
-          Modern Execution
-        </h3>
-
-        <p>
-          Technology should make real estate clearer, faster and more useful,
-          not more complicated.
+          Before real estate, I spent years working around construction and
+          residential properties. That experience taught me to ask questions,
+          pay attention to details and understand how a home fits the people
+          who live in it. Today, I bring that perspective and local knowledge
+          to buying and selling in Monmouth County. I use current market
+          research and modern tools to keep you informed, and explain your
+          options in plain language.
         </p>
 
       </div>
@@ -952,66 +888,39 @@
         </div>
 
         <h2 class="display">
-          The Jersey<br>
-          Shore.
+          Get to know the towns.
         </h2>
 
         <p class="shore-copy">
-          Waterfront communities, historic neighborhoods, beach towns and
-          walkable downtowns. Monmouth County changes quickly from one place
-          to the next, and understanding those differences matters.
+          The Shore isn’t one kind of place. Start with these five towns,
+          then compare the commute, surroundings and day-to-day details
+          that matter to you. Open a town below for a closer look.
         </p>
 
       </div>
 
 
       <div class="town-list">
-
-        <div class="town">
-          <span class="town-name display">
-            Atlantic Highlands
-          </span>
-          <span class="town-meta">
-            Explore
-          </span>
-        </div>
-
-        <div class="town">
-          <span class="town-name display">
-            Highlands
-          </span>
-          <span class="town-meta">
-            Explore
-          </span>
-        </div>
-
-        <div class="town">
-          <span class="town-name display">
-            Red Bank
-          </span>
-          <span class="town-meta">
-            Explore
-          </span>
-        </div>
-
-        <div class="town">
-          <span class="town-name display">
-            Sea Bright
-          </span>
-          <span class="town-meta">
-            Explore
-          </span>
-        </div>
-
-        <div class="town">
-          <span class="town-name display">
-            Rumson
-          </span>
-          <span class="town-meta">
-            Explore
-          </span>
-        </div>
-
+        <details class="town-detail" id="atlantic-highlands">
+          <summary class="town"><span class="town-name display">Atlantic Highlands</span><span class="town-meta">View details <span class="town-toggle" aria-hidden="true">+</span></span></summary>
+          <div class="town-body"><h3>Harbor & ferry access</h3><p>A harbor town with ferry service to New York City. When comparing homes, consider the trip to the terminal as well as your everyday errands.</p><p>If commuting is part of your plan, we can start with your schedule and compare locations from there.</p><a href="https://www.ahnj.com/ahnj/Harbor/Amenities" class="town-resource">Local information <span class="sr-only">for Atlantic Highlands</span> <span aria-hidden="true">↗</span></a></div>
+        </details>
+        <details class="town-detail" id="highlands">
+          <summary class="town"><span class="town-name display">Highlands</span><span class="town-meta">View details <span class="town-toggle" aria-hidden="true">+</span></span></summary>
+          <div class="town-body"><h3>Waterfront & outdoor recreation</h3><p>A waterfront borough with scenic views and outdoor recreation. Look beyond the listing photos and consider how the location works for your daily routine.</p><p>We can compare access, parking and the questions to raise about a particular property before making an offer.</p><a href="https://highlandsnj.gov/" class="town-resource">Local information <span class="sr-only">for Highlands</span> <span aria-hidden="true">↗</span></a></div>
+        </details>
+        <details class="town-detail" id="red-bank">
+          <summary class="town"><span class="town-name display">Red Bank</span><span class="town-meta">View details <span class="town-toggle" aria-hidden="true">+</span></span></summary>
+          <div class="town-body"><h3>Downtown & riverfront</h3><p>Red Bank combines a downtown of shops and restaurants with public spaces along the Navesink River. Distance to downtown can change how you use the town.</p><p>We can compare the actual route from a home to the places you expect to visit, rather than relying on a map pin.</p><a href="https://www.redbank.org/red-bank/" class="town-resource">Local information <span class="sr-only">for Red Bank</span> <span aria-hidden="true">↗</span></a></div>
+        </details>
+        <details class="town-detail" id="sea-bright">
+          <summary class="town"><span class="town-name display">Sea Bright</span><span class="town-meta">View details <span class="town-toggle" aria-hidden="true">+</span></span></summary>
+          <div class="town-body"><h3>Beach access</h3><p>The municipal beach is a central part of Sea Bright. If beach access is your priority, compare the route from each home and where you would park.</p><p>Think through how you plan to use the home throughout the year, and which property-specific questions need answers.</p><a href="https://www.seabrightnj.org/sbnj/Departments/Beach/History/History/" class="town-resource">Local information <span class="sr-only">for Sea Bright</span> <span aria-hidden="true">↗</span></a></div>
+        </details>
+        <details class="town-detail" id="rumson">
+          <summary class="town"><span class="town-name display">Rumson</span><span class="town-meta">View details <span class="town-toggle" aria-hidden="true">+</span></span></summary>
+          <div class="town-body"><h3>Space & daily routes</h3><p>Start your Rumson search with how much space you need, how you use the yard and where you travel each day. Those details help narrow a broad property search.</p><p>We can compare the home, grounds and everyday routes together, and identify the details worth following up on.</p><a href="https://www.rumsonnj.gov/" class="town-resource">Local information <span class="sr-only">for Rumson</span> <span aria-hidden="true">↗</span></a></div>
+        </details>
       </div>
 
     </div>
@@ -1037,9 +946,15 @@
         Explore homes throughout Monmouth County and the New Jersey Shore.
       </p>
 
-      <div class="search-box">
-        RealScout Search Will Live Here
+      <!-- RealScout setup: add your account-specific script once in <head>,
+           then paste the Simple Search widget markup into #realscout-widget.
+           Keep the help link available. Add your verified RealScout search URL
+           as a direct fallback link once supplied. Never use sample account IDs. -->
+      <div class="search-box" id="realscout-widget">
+        <p>Looking for something specific? Share your preferred towns, budget and what matters most to you.</p>
+        <a class="btn btn-dark" href="mailto:tburke.realestate@gmail.com?subject=Help%20with%20my%20home%20search">Ask T about homes</a>
       </div>
+      <p class="search-help">Prefer to talk it through? <a href="sms:+17325134168">Text T about your search</a>.</p>
 
     </div>
 
@@ -1048,7 +963,7 @@
 
   <!-- Contact -->
 
-  <section class="contact">
+  <section class="contact" id="contact">
 
     <div class="contact-inner">
 
@@ -1057,29 +972,31 @@
       </div>
 
       <h2 class="display">
-        Make your<br>
-        next move.
+        What are you planning?
       </h2>
 
       <p>
-        Buying, selling or simply trying to understand your options?
-        Start with a conversation.
+        Tell me where you’re looking or what you’re considering selling.
+        We can talk through your questions and decide on a useful next step.
       </p>
 
-      <button
-        class="btn btn-dark"
-        onclick="openContact()"
-      >
-        Talk to T
-      </button>
+      <div class="contact-actions">
+        <a href="tel:+17325134168" class="btn btn-dark">Call T</a>
+        <a href="sms:+17325134168" class="btn btn-cream">Text T</a>
+        <a href="mailto:tburke.realestate@gmail.com" class="btn btn-cream">Email T</a>
+      </div>
+      <p class="contact-details">732-513-4168 · <a href="mailto:tburke.realestate@gmail.com">tburke.realestate@gmail.com</a></p>
 
     </div>
 
   </section>
 
 
+  </main>
+
   <!-- Footer -->
 
+  <!-- Before publication, supply verified brokerage identity and required disclosures. -->
   <footer>
 
     <div class="container footer-inner">
@@ -1101,80 +1018,15 @@
   </footer>
 
 
-  <!-- Contact Popup -->
-
-  <div
-    id="contactModal"
-    class="contact-modal"
-    onclick="backgroundClose(event)"
-  >
-
-    <div class="contact-box">
-
-      <button
-        class="close"
-        onclick="closeContact()"
-      >
-        ×
-      </button>
-
-      <div class="eyebrow">
-        Contact T
-      </div>
-
-      <h3 class="display">
-        How would you like to connect?
-      </h3>
-
-      <a
-        href="tel:+17325134168"
-        class="contact-option"
-      >
-        Call T
-        <small>732-513-4168</small>
-      </a>
-
-      <a
-        href="sms:+17325134168"
-        class="contact-option"
-      >
-        Text T
-        <small>Send a message</small>
-      </a>
-
-      <a
-        href="mailto:tburke.realestate@gmail.com"
-        class="contact-option"
-      >
-        Email T
-        <small>tburke.realestate@gmail.com</small>
-      </a>
-
-    </div>
-
+  <div class="mobile-contact" aria-label="Contact T. Burke">
+    <a href="tel:+17325134168">Call T</a>
+    <a href="sms:+17325134168">Text T</a>
+    <a href="mailto:tburke.realestate@gmail.com">Email T</a>
   </div>
-
 
   <script>
 
-    function openContact() {
-      document
-        .getElementById("contactModal")
-        .classList.add("show");
-    }
-
-    function closeContact() {
-      document
-        .getElementById("contactModal")
-        .classList.remove("show");
-    }
-
-    function backgroundClose(event) {
-      if (event.target.id === "contactModal") {
-        closeContact();
-      }
-    }
-
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const shoreline = document.getElementById("coastlineProgress");
 
     function animateShoreline() {
@@ -1188,8 +1040,7 @@
           ? window.scrollY / pageHeight
           : 0;
 
-      shoreline.style.strokeDashoffset =
-        1 - progress;
+      shoreline.style.strokeDashoffset = reducedMotion.matches ? 0 : 1 - progress;
 
     }
 
@@ -1199,9 +1050,11 @@
       { passive: true }
     );
 
+    reducedMotion.addEventListener("change", animateShoreline);
     animateShoreline();
 
   </script>
 
 </body>
 </html>
+
