@@ -628,6 +628,7 @@
     .skip-link { position: fixed; top: 12px; left: 12px; padding: 14px 20px; background: var(--cream); color: var(--navy); z-index: 100; transform: translateY(-160%); }
     .skip-link:focus { transform: translateY(0); }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .nav-links { background: rgba(7,26,43,.92); border-radius: 999px; padding: 4px 12px; }
     .nav-links a { display: inline-flex; align-items: center; min-height: 44px; }
     .path-link { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 20px; color: var(--navy); border-bottom: 1px solid var(--gold); font-size: .9rem; }
     .card { display: flex; flex-direction: column; align-items: flex-start; }
@@ -654,6 +655,7 @@
     .eyebrow { color: #84633b; }
     .hero .eyebrow, .shore .eyebrow { color: #c7a778; }
     @media (max-width: 850px) {
+      .nav-links { background: none; border-radius: 0; padding: 0; }
       body { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
       .mobile-contact { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 30; background: var(--navy); color: var(--cream); border-top: 1px solid rgba(255,255,255,.2); padding-bottom: env(safe-area-inset-bottom); }
       .mobile-contact a { flex: 1; min-height: 60px; display: flex; align-items: center; justify-content: center; font-size: .9rem; }

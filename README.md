@@ -41,4 +41,4 @@ Town details use conservative descriptions and practical comparison prompts, wit
 
 Open `index.html` in a browser, or serve this directory with a local static server. Check narrow and wide screens, keyboard navigation, all five town disclosures, section links, direct contact destinations and reduced-motion behavior. No tracking code, third-party widgets or new dependencies are included in this revision.
 
-Source checks passed for HTML nesting, unique IDs, internal section links, image paths and JavaScript syntax. Rendered browser verification remains outstanding because the browser download was unavailable.
+Source checks passed for HTML nesting, unique IDs, internal section links, image paths and JavaScript syntax. Live desktop browser verification passed: both images load, all five town disclosures open, and the page has no horizontal overflow at 1363px. Direct contact destinations were checked without initiating calls or sending messages. Desktop navigation contrast was corrected after visual review. Rendered mobile verification remains outstanding.
