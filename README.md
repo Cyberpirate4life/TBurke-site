@@ -1,12 +1,18 @@
 # T. Burke Real Estate
 
-A single-page Monmouth County and New Jersey Shore real estate website. Built with plain HTML, embedded CSS and a small shoreline script. No build step or application dependencies.
+A single-page Monmouth County and New Jersey Shore real estate website. Built with plain HTML, embedded CSS and a small scroll interaction script. No build step or application dependencies.
 
 ## Page structure
 
 Hero → Buying / Selling / Towns → About T → Expandable town details → Property search → Direct contact.
 
 Call, text and email are available without JavaScript. Mobile visitors have a fixed contact bar with safe-area spacing. Town details use native HTML disclosures.
+
+## Visual direction and motion
+
+Bold sans-serif typography, oversized T. Burke lettering and a split portrait hero retain the navy, cream and restrained gold palette. Scroll interactions include a moving Shore banner, subtle portrait movement, section reveals, a compact navigation bar and a reading progress line. The existing portrait and logo are retained.
+
+Animation respects reduced-motion preferences. Content stays visible without JavaScript; native links and town disclosures work independently of the animation.
 
 ## RealScout setup
 

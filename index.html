@@ -57,7 +57,7 @@
     }
 
     .display {
-      font-family: "Baskerville", "Iowan Old Style", Georgia, serif;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: 400;
     }
 
@@ -671,10 +671,136 @@
       .btn:hover, .card:hover { transform: none; }
     }
 
+
+    /* Next rendition: bold type and scroll-led pacing, using the existing page. */
+    :root { --cream: #f7f5ef; --muted: #46525b; }
+    body { font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; }
+    .display { font-weight: 800; text-transform: uppercase; letter-spacing: -.055em; }
+    .eyebrow { letter-spacing: .16em; font-size: .72rem; font-weight: 700; }
+    .container { width: min(1240px, calc(100% - 80px)); }
+    nav { position: fixed; padding: 18px 0; background: var(--cream); color: var(--navy); border-bottom: 1px solid var(--line); transition: padding .25s ease; z-index: 50; }
+    body.has-scrolled nav { padding: 10px 0; }
+    .nav-inner { width: min(1440px, calc(100% - 64px)); }
+    .brand { font-size: 1.55rem; letter-spacing: -.04em; font-weight: 800; }
+    .nav-links { background: none; padding: 0; border-radius: 0; gap: 30px; font-size: .72rem; font-weight: 700; }
+    .nav-contact { background: var(--navy); color: var(--cream); border-color: var(--navy); padding: 8px 20px; }
+    section, main, details { scroll-margin-top: 110px; }
+    .hero { background: var(--cream); color: var(--navy); grid-template-columns: 48% 52%; min-height: 100svh; }
+    .hero-copy { padding: 140px 5vw 100px 7vw; }
+    .hero-inner { width: 100%; }
+    .hero .eyebrow { color: #7b6240; margin-bottom: 34px; }
+    .hero h1 { font-size: clamp(5rem, 10vw, 9.5rem); line-height: .83; letter-spacing: -.075em; margin-bottom: 28px; }
+    .hero-line { display: block; overflow: hidden; padding: .03em 0 .08em; }
+    .hero-line > span { display: block; }
+    .hero-location { font-size: clamp(1rem,1.5vw,1.3rem); line-height: 1.4; font-weight: 700; margin-bottom: 20px; }
+    .hero-sub { color: var(--muted); font-size: clamp(1rem,1.25vw,1.12rem); line-height: 1.65; margin-bottom: 28px; max-width: 430px; }
+    .hero-photo { min-height: 100svh; }
+    .hero-photo img { transform: scale(1.06); will-change: transform; object-position: center 32%; }
+    .hero-photo::after { background: linear-gradient(0deg,rgba(7,26,43,.15),transparent 35%); }
+    .btn { font-size: .72rem; font-weight: 700; letter-spacing: .07em; border-radius: 0; min-height: 52px; padding: 0 22px; }
+    .btn-light { background: var(--navy); color: var(--cream); }
+    .btn-outline { color: var(--navy); border: 1px solid var(--navy); }
+    .btn:hover { transform: none; background: #b69261; color: var(--navy); }
+    .scroll-cue { color: var(--navy); font-size: .65rem; letter-spacing: .06em; font-weight: 700; display: flex; gap: 12px; align-items: center; }
+    .scroll-arrow { font-size: 1.4rem; }
+    .shore-ribbon { overflow: hidden; background: var(--navy); color: var(--cream); padding: 30px 0; position: relative; z-index: 2; }
+    .ribbon-track { display: flex; width: max-content; gap: 50px; padding-left: 4vw; will-change: transform; }
+    .ribbon-track span { font-weight: 800; font-size: clamp(3.5rem,8vw,8rem); letter-spacing: -.065em; line-height: 1; white-space: nowrap; }
+    .ribbon-outline { color: transparent; -webkit-text-stroke: 1px var(--cream); }
+    .difference { background: var(--cream); }
+    .card { padding: 58px 30px; min-height: 370px; }
+    .card:hover { background: #ede9df; transform: none; }
+    .card-number { font-size: .8rem; margin-bottom: 30px; font-weight: 700; }
+    .card h2 { font-size: clamp(1.6rem,2.5vw,2.5rem); line-height: 1; }
+    .card p { font-weight: 400; }
+    .path-link { font-weight: 700; width: 100%; justify-content: space-between; }
+    .path-link span { font-size: 1.6rem; transition: transform .25s; }
+    .path-link:hover span { transform: translateX(6px); }
+    .approach { padding: 120px 0; }
+    .approach-grid { grid-template-columns: .55fr 1.45fr; gap: 70px; align-items: start; }
+    .logo-panel { padding-top: 10px; position: sticky; top: 120px; }
+    .logo-panel img { max-width: 200px; }
+    .approach h2 { font-size: clamp(2.8rem,5.4vw,5.5rem); line-height: .98; }
+    .approach p { font-weight: 400; font-size: 1.08rem; max-width: 600px; }
+    .shore { padding: 120px 0; background: var(--navy); }
+    .shore::before { display: none; }
+    .shore-grid { gap: 80px; align-items: start; }
+    .shore-grid > div:first-child { position: sticky; top: 130px; }
+    .shore h2 { font-size: clamp(3rem,5.6vw,6rem); line-height: .95; }
+    .town-name { font-size: clamp(1.2rem,2vw,1.8rem); font-weight: 700; letter-spacing: -.03em; text-transform: none; }
+    .town { padding: 28px 0; }
+    .town:hover { padding-left: 0; color: #d6b98f; }
+    .town-meta { font-size: .6rem; }
+    .town-body { padding-bottom: 30px; }
+    .town-detail[open] .town { color: #d6b98f; }
+    .search h2 { font-size: clamp(2.8rem,5.5vw,5.5rem); line-height: .98; }
+    .search-box { border: 0; background: var(--cream); max-width: 760px; margin: 40px auto 0; }
+    .contact { padding: 120px 20px; background: var(--cream); }
+    .contact h2 { font-size: clamp(3rem,6.5vw,6.5rem); line-height: .95; }
+    .contact p { font-weight: 400; }
+    .footer-brand { font-size: 1.2rem; letter-spacing: -.03em; }
+    .scroll-progress { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: var(--gold); z-index: 60; transform: scaleX(0); transform-origin: left; }
+    .motion-ready [data-reveal] { opacity: 0; transform: translateY(36px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.3,1); }
+    .motion-ready [data-reveal].is-visible { opacity: 1; transform: none; }
+    .motion-ready .card:nth-child(2) { transition-delay: .1s; }
+    .motion-ready .card:nth-child(3) { transition-delay: .2s; }
+    @keyframes name-enter { from { transform: translateY(110%); } to { transform: translateY(0); } }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-line > span { animation: name-enter .85s cubic-bezier(.2,.7,.3,1) both; }
+      .hero-line:nth-child(2) > span { animation-delay: .1s; }
+    }
+    @media (max-width: 850px) {
+      .container { width: calc(100% - 48px); }
+      nav, body.has-scrolled nav { background: var(--cream); padding: 14px 0; }
+      .nav-inner { width: calc(100% - 40px); gap: 10px; }
+      .brand { font-size: 1.35rem; }
+      .nav-links { width: 100%; gap: 14px; font-size: .6rem; justify-content: space-between; }
+      .nav-links a { min-height: 38px; }
+      .nav-contact { padding: 7px 14px; }
+      section, main, details { scroll-margin-top: 145px; }
+      .hero-copy { padding: 175px 24px 60px; }
+      .hero h1 { font-size: clamp(4.4rem,18vw,7.5rem); line-height: .85; }
+      .hero .eyebrow { font-size: .64rem; margin-bottom: 26px; }
+      .hero-photo { min-height: 62svh; }
+      .hero-photo img { object-position: center 28%; }
+      .scroll-cue { display: none; }
+      .shore-ribbon { padding: 24px 0; }
+      .ribbon-track { gap: 24px; }
+      .ribbon-track span { font-size: 3.8rem; }
+      .difference-grid { gap: 0; }
+      .card { padding: 38px 0; min-height: auto; }
+      .card h2 { max-width: 280px; font-size: 2.3rem; }
+      .card-number { margin-bottom: 20px; }
+      .card .path-link { padding-top: 10px; }
+      .approach { padding: 80px 0; }
+      .approach-grid { grid-template-columns: 1fr; gap: 30px; }
+      .logo-panel { position: static; text-align: left; }
+      .logo-panel img { max-width: 115px; }
+      .approach h2 { font-size: clamp(2.3rem,8.5vw,4rem); }
+      .shore { padding: 80px 0; }
+      .shore-grid { gap: 40px; }
+      .shore-grid > div:first-child { position: static; }
+      .shore h2 { font-size: clamp(2.8rem,11vw,4.2rem); }
+      .town { padding: 24px 0; }
+      .town-name { font-size: clamp(1.1rem,4vw,1.5rem); }
+      .town-meta { font-size: .53rem; letter-spacing: .04em; }
+      .search, .contact { padding-top: 80px; padding-bottom: 80px; }
+      .contact h2 { font-size: clamp(2.5rem,10vw,4.5rem); }
+      .motion-ready .card { transition-delay: 0s; }
+      .mobile-contact { background: var(--navy); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-line > span { animation: none; }
+      .motion-ready [data-reveal] { opacity: 1; transform: none; }
+      .hero-photo img { transform: none !important; will-change: auto; }
+      .ribbon-track { transform: none !important; will-change: auto; }
+    }
+
   </style>
 </head>
 
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Animated Shoreline -->
@@ -766,16 +892,17 @@
       <div class="hero-inner">
 
         <div class="eyebrow">
-          T. Burke · Monmouth County Real Estate
+          Monmouth County · New Jersey
         </div>
 
-        <h1 class="display" id="hero-title">Buying or selling at the Jersey Shore?</h1>
+        <h1 class="display" id="hero-title" aria-label="T. Burke"><span class="hero-line"><span>T.</span></span><span class="hero-line"><span>BURKE.</span></span></h1>
+        <p class="hero-location">Your agent at the Jersey Shore.</p>
 
         <p class="hero-sub">
-          I’m T. Burke. Years working around construction and residential
-          properties shape the questions I ask and the guidance I give.
-          I help buyers and sellers across Monmouth County understand their
-          options and make informed decisions.
+          I help people buy and sell homes in Monmouth County.
+          I’m from Leonardo, with years of experience around construction
+          and residential properties. You’ll get a local perspective,
+          practical answers and straightforward guidance.
         </p>
 
         <div class="buttons">
@@ -805,11 +932,13 @@
     </div>
 
     <div class="scroll-cue">
-      Scroll to explore
+      <span class="scroll-arrow" aria-hidden="true">↓</span> Scroll to get to know T
     </div>
 
   </section>
 
+
+  <div class="shore-ribbon" aria-hidden="true"><div class="ribbon-track"><span>THE JERSEY SHORE</span><span class="ribbon-outline">THE JERSEY SHORE</span></div></div>
 
   <!-- Visitor paths -->
   <section class="difference" aria-label="How can I help?">
@@ -857,17 +986,15 @@
         </div>
 
         <h2 class="display">
-          A practical perspective on your next home.
+          A local agent<br>who knows homes.
         </h2>
 
         <p>
-          Before real estate, I spent years working around construction and
-          residential properties. That experience taught me to ask questions,
-          pay attention to details and understand how a home fits the people
-          who live in it. Today, I bring that perspective and local knowledge
-          to buying and selling in Monmouth County. I use current market
-          research and modern tools to keep you informed, and explain your
-          options in plain language.
+          Working around construction and residential properties taught me
+          to look beyond the photos and ask better questions. As your agent,
+          I bring that experience to the conversations about a home, its
+          potential and your next steps. I use current market research to
+          help you compare your options, and keep you informed as things move.
         </p>
 
       </div>
@@ -890,7 +1017,7 @@
         </div>
 
         <h2 class="display">
-          Get to know the towns.
+          Find your<br>part of the Shore.
         </h2>
 
         <p class="shore-copy">
@@ -941,7 +1068,7 @@
       </div>
 
       <h2 class="display">
-        Find your place.
+        Start with<br>the right home.
       </h2>
 
       <p>
@@ -974,12 +1101,12 @@
       </div>
 
       <h2 class="display">
-        What are you planning?
+        Let’s talk about<br>your next move.
       </h2>
 
       <p>
-        Tell me where you’re looking or what you’re considering selling.
-        We can talk through your questions and decide on a useful next step.
+        Tell me what you have in mind. Buying, selling or figuring out
+        where to start, I’m happy to talk it through.
       </p>
 
       <div class="contact-actions">
@@ -1027,34 +1154,58 @@
   </div>
 
   <script>
-
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const shoreline = document.getElementById("coastlineProgress");
-
-    function animateShoreline() {
-
-      const pageHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-      const progress =
-        pageHeight > 0
-          ? window.scrollY / pageHeight
-          : 0;
-
-      shoreline.style.strokeDashoffset = reducedMotion.matches ? 0 : 1 - progress;
-
-    }
-
-    window.addEventListener(
-      "scroll",
-      animateShoreline,
-      { passive: true }
-    );
-
-    reducedMotion.addEventListener("change", animateShoreline);
-    animateShoreline();
-
+    (() => {
+      const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const shoreline = document.getElementById('coastlineProgress');
+      const progressBar = document.querySelector('.scroll-progress');
+      const portrait = document.querySelector('.hero-photo img');
+      const hero = document.querySelector('.hero');
+      const ribbon = document.querySelector('.shore-ribbon');
+      const track = document.querySelector('.ribbon-track');
+      const targets = document.querySelectorAll('.card, .approach h2, .approach p, .shore h2, .shore-copy, .town-detail, .search h2, .search-box, .contact h2, .contact-actions');
+      let observer;
+      if ('IntersectionObserver' in window) {
+        targets.forEach(el => el.setAttribute('data-reveal', ''));
+        observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+        targets.forEach(el => observer.observe(el));
+        document.body.classList.add('motion-ready');
+      }
+      let queued = false;
+      function update() {
+        queued = false;
+        const y = window.scrollY;
+        const max = document.documentElement.scrollHeight - innerHeight;
+        const progress = max > 0 ? Math.min(1, y / max) : 0;
+        progressBar.style.transform = `scaleX(${progress})`;
+        shoreline.style.strokeDashoffset = motion.matches ? 0 : 1 - progress;
+        document.body.classList.toggle('has-scrolled', y > 30);
+        if (!motion.matches) {
+          const heroProgress = Math.min(1, Math.max(0, y / hero.offsetHeight));
+          portrait.style.transform = `translateY(${heroProgress * 35}px) scale(${1.06 + heroProgress * .04})`;
+          const rect = ribbon.getBoundingClientRect();
+          const ribbonProgress = Math.min(1, Math.max(0, (innerHeight - rect.top) / (innerHeight + rect.height)));
+          track.style.transform = `translateX(${-ribbonProgress * 120}px)`;
+        } else {
+          portrait.style.transform = '';
+          track.style.transform = '';
+          targets.forEach(el => el.classList.add('is-visible'));
+        }
+      }
+      function schedule() {
+        if (!queued) { queued = true; requestAnimationFrame(update); }
+      }
+      addEventListener('scroll', schedule, { passive: true });
+      addEventListener('resize', schedule, { passive: true });
+      motion.addEventListener('change', schedule);
+      update();
+    })();
   </script>
 
 </body>
