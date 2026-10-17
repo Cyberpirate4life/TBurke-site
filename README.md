@@ -10,7 +10,24 @@ Call, text and email are available without JavaScript. Mobile visitors have a fi
 
 ## Visual direction and motion
 
-Bold sans-serif typography, oversized T. Burke lettering and a split portrait hero retain the navy, cream and restrained gold palette. Scroll interactions include a moving Shore banner, subtle portrait movement, section reveals, a compact navigation bar and a reading progress line. The existing portrait and logo are retained.
+Bold sans-serif typography, oversized T. Burke lettering and a split portrait hero retain the navy, cream and restrained gold palette. An inset ten-photo Monmouth County carousel follows the hero with a cream-colored visual break. It advances every 5 seconds while visible, offers previous/next controls, and accepts horizontal touch swipes. Clicking a photo or the Pause button toggles playback; hover and keyboard focus do not pause it. Automatic advancement is suspended in hidden tabs, outside the viewport and for reduced-motion preferences. Scroll interactions retain the portrait movement, section reveals, compact navigation and reading progress line. The existing portrait and T. Burke logo file are retained; the logo is no longer displayed in About T. Separate brokerage affiliation blocks in About and the footer keep brokerage changes independent of personal branding.
+
+The O'Brien image has not been installed because attachment transfer is blocked on this host; the footer currently uses the supplied brokerage name as text.
+
+### Shoreline photographs
+
+The carousel files are resized locally to 1600 pixels wide; their display viewports crop them. Credits and license links are visible on each slide:
+
+- `spring-lake.jpg`: Nick Harris, Spring Lake beach at sunrise. https://commons.wikimedia.org/wiki/File:Spring_Lake,_New_Jersey_Beach_at_Sunrise.jpg — CC BY 2.5, https://creativecommons.org/licenses/by/2.5/
+- `ocean-grove.jpg`: Nathan Siemers, Ocean Grove surf at sunrise. https://commons.wikimedia.org/wiki/File:Foam_-_Flickr_-_nosha.jpg — CC BY-SA 2.0, https://creativecommons.org/licenses/by-sa/2.0/
+- `sandy-hook-quiet.jpg`: National Park Service, Sandy Hook beach. https://commons.wikimedia.org/wiki/File:Beach_at_Sandy_Hook.jpeg — U.S. public domain.
+- `sea-bright.jpg`: Famartin, beach near Sandy Hook in Sea Bright. https://commons.wikimedia.org/wiki/File:2021-09-08_15_57_17_View_northeast_across_the_beach_from_the_east_side_of_the_pedestrian_overpass_over_New_Jersey_State_Route_36_at_the_entrance_to_Sandy_Hook_in_Sea_Bright,_Monmouth_County,_New_Jersey.jpg - CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
+- `belmar.jpg`: Constantino14, Belmar beach aerial. https://commons.wikimedia.org/wiki/File:Belmar7-23-23.jpg - CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
+- `asbury-boardwalk.jpg`: Acroterion, Asbury Park boardwalk in the morning. https://commons.wikimedia.org/wiki/File:Asbury_Park_boardwalk_NJ6.jpg - CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
+- `long-branch.jpg`: Curlyrnd, Long Branch dunes and beach. https://commons.wikimedia.org/wiki/File:Long_Branch,_NJ_beach,_Oct._2020_(1).jpg - CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
+- `manasquan.jpg`: James Loesch, Manasquan Inlet aerial. https://commons.wikimedia.org/wiki/File:Manasquan_Inlet_aerial_photograph_2022.jpg - CC BY 2.0, https://creativecommons.org/licenses/by/2.0/
+- `avon.jpg`: Dough4872, Avon-by-the-Sea boardwalk. https://commons.wikimedia.org/wiki/File:Avon-by-the-Sea_boardwalk_looking_north_at_Lincoln_Avenue.jpeg - CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
+- `highlands.jpg`: Famartin, Shrewsbury River at the Highlands-Sea Bright bridge. https://commons.wikimedia.org/wiki/File:2024-09-13_15_12_13_View_northeast_from_New_Jersey_State_Route_36_(Highlands-Sea_Bright_Bridge)_over_the_Shrewsbury_River_on_the_border_of_Sea_Bright_and_Highlands_in_Monmouth_County,_New_Jersey.jpg - CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/
 
 Animation respects reduced-motion preferences. Content stays visible without JavaScript; native links and town disclosures work independently of the animation.
 
